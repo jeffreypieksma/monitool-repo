@@ -4,42 +4,47 @@ console.log(chartData);
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
+    "color": "#045071",
+    "fontFamily": "RalewayRegular",
+    "fontSize": 12,
     "marginRight": 0,
-    "autoMarginOffset": 20,
-    "marginTop": 7,
+    "autoMarginOffset": 15,
+    "marginTop": 0,
     "dataProvider": chartData,
     "valueAxes": [{
         "axisAlpha": 0.2,
         "dashLength": 1,
         "position": "left"
     }],
-    "mouseWheelZoomEnabled": true,
+    "mouseWheelZoomEnabled": false,
     "graphs": [{
         "id": "g1",
-        "balloonText": "[[value]]",
-        "bullet": "round",
-        "bulletBorderAlpha": 1,
-        "bulletColor": "#FFFFFF",
+        "type": "smoothedLine",
         "hideBulletsCount": 50,
         "title": "red line",
         "valueField": "visits",
-        "useLineColorForBulletBorder": true,
+        "useLineColorForBulletBorder": false,
         "balloon":{
-            "drop":false
+            "drop":true
         }
     }],
     "chartScrollbar": {
         "autoGridCount": true,
         "graph": "g1",
+        "backgroundColor": "#62ABCB",
+        "graphFillColor": "#1D7FAA",
+        "selectedBackgroundColor": "#62ABCB",
+        "selectedGraphFillColor": "#045071",
         "scrollbarHeight": 40
     },
     "chartCursor": {
-       "limitToGraph":"g1"
+       "limitToGraph":"g1",
+       "cursorAlpha": .1
     },
     "categoryField": "date",
     "categoryAxis": {
         "parseDates": true,
-        "axisColor": "#DADADA",
+        "axisColor": "#045071",
         "dashLength": 1,
         "minorGridEnabled": true
     },

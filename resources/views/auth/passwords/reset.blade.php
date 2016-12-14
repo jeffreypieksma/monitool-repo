@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.blade')
+@extends('layouts.login')
 
 @section('content')
 <div class="login-register contentbg">

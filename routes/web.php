@@ -30,6 +30,7 @@ Route::post('/create-project', 'CreateProjectController@store');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/options', 'DashboardController@options');
+Route::get('/help', 'DashboardController@help');
 
 Route::get('/feed/{param}','FacebookController@index');
 Route::get('/feed','FacebookController@index');

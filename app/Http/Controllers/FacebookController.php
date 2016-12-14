@@ -32,8 +32,7 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-
-		return $data;
+		return $this->dataToJS($data['data']);
 	}
 
 	public function insights(){
@@ -44,8 +43,7 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-
-		return $data;
+		return $this->dataToJS($data['data']);
 	}
 
 	public function likes(){
@@ -57,9 +55,19 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-
-        //send data
-		return $data;
+		// return $this->dataToJS($data['data']);
+		return $data['data'];
 	}
+
+	public function dataToJS($data){
+        $fbDataArray = [];
+        foreach($data[0]['values'] as $value){
+            $fbdate = strtotime($value["end_time"]);
+            $date = date('D M d Y h:i:s OT (e)', $fbdate);
+         $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);
+        }
+        $chartData = json_encode($fbDataArray);
+        return $chartData;
+    }
 
 }
