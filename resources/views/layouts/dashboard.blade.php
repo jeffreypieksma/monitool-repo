@@ -16,14 +16,24 @@
     <link href="{{URL::asset('public/css/dashboard.css') }}" rel="stylesheet">
     <link href="{{URL::asset('public/css/dashboardJeffrey.css') }}" rel="stylesheet">
     <link href="{{URL::asset('public/css/global.css') }}" rel="stylesheet">
-    
 
     <!-- Scripts -->
+    
+    <script src="{{URL::asset('public/js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{URL::asset('public/js/dashboard.js') }}"></script>
+    <script src="{{URL::asset('public/js/app.js') }}"></script>
+
+
+    @yield('style')
+
+    @yield('scripts')
+
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
 </head>
 <body>
     <div id="app">
@@ -74,6 +84,9 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                        <a href="{{ url('/dashboard') }}">Dashboard</a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif
@@ -88,17 +101,10 @@
                 </div>
             </div>
         </nav>
-        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-        <script src="./resources/assets/js/Chart.js"></script>
+
         @yield('content')
+
+
     </div>
-    <!-- Scripts -->
-    <script src="./public/js/app.js"></script>
-    
-    
 </body>
 </html>

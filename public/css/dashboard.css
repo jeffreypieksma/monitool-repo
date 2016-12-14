@@ -6,6 +6,7 @@
 body{
 	background-color: #ede9e6;
 }
+
 /* latin-ext */
 @font-face {
   font-family: 'Raleway';
@@ -37,6 +38,28 @@ body{
   font-weight: 600;
   src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(https://fonts.gstatic.com/s/raleway/v11/xkvoNo9fC8O2RDydKj12b_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@media screen and (max-width: 767px) {
+    .token-title small{
+    	display: none;
+	}
+}
+
+@media screen and (max-width: 480px) {
+    .token-title small{
+    	display: none;
+    }
+    .socialmedia-label .col-xs-6{
+    	display: none;
+    }
+    .socialmedia-label .col-xs-3{
+    	display: none;
+    }
+}
+
+.margin-fix{
+	margin-left: -15px;
 }
 
 .rowmediaeach{
@@ -85,6 +108,188 @@ hr.horizontal-break, hr.break {
     height: 3px;
     background: #FF9621;
     border: none;
+}
+
+/*** Navigation ***/
+
+.navbar.navbar-default.navbar-static-top{
+	background-color:#1D7FAA;
+}
+
+.navbar{
+	margin-bottom:0px !important;
+	border-bottom:0px !important;
+}
+
+.navbar .navbar-brand{
+	font-family: titleFont;
+	font-size:30px;
+	color:#fff !important;
+}
+.navbar > .container .navbar-brand{
+	margin-left:0px !important;
+}
+
+ul.nav.navbar-nav.navbar-right li:nth-child(2) a{
+	background-color:#FCA94C;
+	border-radius:5px;
+	padding:5px;
+	margin-top:7px;
+	margin-right:20px;
+}
+ul.nav.navbar-nav.navbar-right li:nth-child(2) a:hover{
+	font-weight: bold;
+}
+ul.nav.navbar-nav.navbar-right li:nth-child(1) a:hover{
+	font-weight: bold;
+}
+ul.dropdown-menu{
+  background-color:#1D7FAA;
+  border:none !important;
+  
+}
+ul.dropdown-menu li a:hover{
+  background-color:#1D7FAA;
+  font-weight: bold;
+  
+}
+ul.nav.navbar-nav.navbar-right a.dropdown-toggle{
+  background-color:#1D7FAA !important;
+}
+ul.nav.navbar-nav a{color:#fff !important;}
+
+/*** Panel ***/
+
+.contentbg{
+	background:url("../../public/img/background.png") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;	
+}
+
+.panel.custompanel{
+	background-color:transparent;
+}
+
+.panel-default.custompanel{
+  border:none;
+}
+
+.panel.custompanel .panel-heading{
+  color:#fff;
+  text-align: center;
+  font-size:1.8em;
+  font-weight: bold;
+  border:none;
+  border-top:10px solid #FF9621;
+  background-color:rgba(29, 127, 170, 0.8);
+  margin-top:40px;
+  border-radius: 0px;
+}
+
+.panel.custompanel .panel-body{
+  background-color:rgba(29, 127, 170, 0.8);
+  color:#fff;
+}
+
+/*** Instellingen view ***/
+
+.panel{
+	background-color: white;
+	margin: 15px;
+	padding: 15px;
+	border-bottom: 1px solid #045071;
+}
+
+.panel-title{
+	color: #045071;
+	width: 100%;
+	border-bottom: 2px solid #EDE9E6;
+	margin-bottom: 5px;
+	padding: 5px;
+	clear: both;
+	text-align: center;
+	font-weight: bold;
+}
+
+.panel-subtitle{
+	color: #045071;
+	width: 100%;
+	border-bottom: 2px solid #EDE9E6;
+	margin-bottom: 5px;
+	padding: 5px;
+	clear: both;
+	text-align: center;
+	font-size: 14px;
+}
+
+.dashboard-options .panel input{
+	background-color: #f5f8fa;
+}
+
+.dashboard-options .panel select{
+	max-width: 30%;
+	background-color: #f5f8fa;
+}
+
+.dashboard-options .panel-info{
+	color: #045071;
+}
+
+.dashboard-options .terms{
+	width: 100%;
+	height: 125px;
+	margin-bottom: 15px;
+	padding: 10px;
+	background-color: #f5f8fa;
+	overflow-y: scroll;
+}
+
+.dashboard-options .btn-danger{
+	float: right;
+}
+
+.dashboard-options .form-horizontal{
+	padding-left: 15px;
+}
+
+.socialmedia-label{
+	background-color: #338CC8;
+	height: 36px;
+	color: white;
+	padding: 8px;
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+
+.fb img{
+	height: 18px;
+}
+
+.yt{
+	background-color: #C84635;
+}
+/*** Create-project view ***/
+
+.create-project .socialmedia .facebook{
+	background-color:#338CC8;
+	border: 1px solid #ccd0d2;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	width: 100%;
+	height: 36px;
+	padding: 6px 12px;
+}
+.create-project .socialmedia .youtube{
+	margin-top:15px;
+	background-color:#C84635;
+	border: 1px solid #ccd0d2;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	width: 100%;
+	height: 36px;
+	padding: 6px 12px;
 }
 
 /*** Slider ***/
@@ -158,9 +363,16 @@ hr.horizontal-break, hr.break {
 
 .dashboard .col-md-4{height: 350px;}
 
-.dashboard .graph{padding: 5px;}
+.dashboard .graph{
 
+}
 
+.dashboard .panel.filterbuttons{
+	height:80px;
+	border:none;
+	border-radius:3px 3px 0px 0px;
+	margin-bottom: 0px;
+}
 
 .dashboard .panel-title{
 	width: 80%;
@@ -168,9 +380,8 @@ hr.horizontal-break, hr.break {
 	margin-right: auto;
 }
 
-.dashboard .panel{
-	margin: 10px;
-	height: 100%;
+.dashboard .panel #filterform {
+	min-height: 300px;
 }
 
 .dashboard .buttons-filter{
@@ -178,14 +389,9 @@ hr.horizontal-break, hr.break {
 	width: 50px;
 	float: right;
 	background-color: orange;
-	margin-top: -15px;
 	border-radius: 2px;
-	padding: 0;
 	background-image: url(../icons/icon-filter.png);
 	background-repeat: no-repeat;
-	position: relative;
-	bottom: 27px;
-	z-index: 5;
 }
 
 .dashboard .buttons-filter:hover{
@@ -223,4 +429,120 @@ hr.horizontal-break, hr.break {
 	height: 50px !important;
 	background-image: url(../icons/icon-export.png) !important;
 	box-shadow: none !important;
+}
+/*** Filter Dashboard ****/
+
+.panel.filterwrapper{
+	border:1px solid #1D7FAA !important;
+	z-index:2;
+	background-color:#FFFFFF;
+}
+
+.funkyradio div {
+  clear: both;
+  overflow: hidden;
+}
+
+.funkyradio label {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #D1D3D4;
+  font-weight: normal;
+}
+
+.funkyradio input[type="radio"]:empty,
+.funkyradio input[type="checkbox"]:empty {
+  display: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label,
+.funkyradio input[type="checkbox"]:empty ~ label {
+  position: relative;
+  line-height: 2.5em;
+  text-indent: 3.25em;
+  margin-top: 2em;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.funkyradio input[type="radio"]:empty ~ label:before,
+.funkyradio input[type="checkbox"]:empty ~ label:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 2.5em;
+  background: #D1D3D4;
+  border-radius: 3px 0 0 3px;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+  color: #888;
+}
+
+.funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+.funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #C2C2C2;
+}
+
+.funkyradio input[type="radio"]:checked ~ label,
+.funkyradio input[type="checkbox"]:checked ~ label {
+  color: #777;
+}
+
+.funkyradio input[type="radio"]:checked ~ label:before,
+.funkyradio input[type="checkbox"]:checked ~ label:before {
+  content: '\2714';
+  text-indent: .9em;
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio input[type="radio"]:focus ~ label:before,
+.funkyradio input[type="checkbox"]:focus ~ label:before {
+  box-shadow: 0 0 0 3px #999;
+}
+
+.funkyradio-default input[type="radio"]:checked ~ label:before,
+.funkyradio-default input[type="checkbox"]:checked ~ label:before {
+  color: #333;
+  background-color: #ccc;
+}
+
+.funkyradio-primary input[type="radio"]:checked ~ label:before,
+.funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+.funkyradio-success input[type="radio"]:checked ~ label:before,
+.funkyradio-success input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #5cb85c;
+}
+
+.funkyradio-danger input[type="radio"]:checked ~ label:before,
+.funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #d9534f;
+}
+
+.funkyradio-warning input[type="radio"]:checked ~ label:before,
+.funkyradio-warning input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #f0ad4e;
+}
+
+.funkyradio-info input[type="radio"]:checked ~ label:before,
+.funkyradio-info input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #5bc0de;
 }
