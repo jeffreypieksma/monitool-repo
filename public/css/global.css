@@ -71,13 +71,6 @@ body{
   margin-left:15px;
 }
 
-.navbar-collapse.collapse .navbar-right li:nth-child(2) a{
-  background-color:#FCA94C;
-  border-radius:5px;
-  padding:5px;
-  margin-top:7px;
-  margin-right:20px;
-}
 .navbar-collapse.collapse .navbar-right li:nth-child(2) a:hover,
 .navbar-collapse.collapse .navbar-right li:nth-child(1) a:hover{
   font-weight: bold;

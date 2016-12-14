@@ -4,6 +4,7 @@
 <div class="dashboard-options">
   <div class="container-fluid">
     <h2>Settings</h2>
+    <a href="{{ url('/dashboard') }}" class="back-button"></a>
     <div class="row">
       <div class="col-md-6">
         <div class="panel">

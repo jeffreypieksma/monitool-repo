@@ -11,10 +11,10 @@
     <title>{{ config('app.name', 'Monitool') }}</title>
 
     <!-- Styles -->
-
+    
+    <link href="{{URL::asset('public/css/graph.css') }}" rel="stylesheet">
     <link href="{{URL::asset('public/css/app.css') }}" rel="stylesheet">
     <link href="{{URL::asset('public/css/dashboard.css') }}" rel="stylesheet">
-    <link href="{{URL::asset('public/css/dashboardJeffrey.css') }}" rel="stylesheet">
     <link href="{{URL::asset('public/css/global.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
@@ -74,6 +74,9 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a class="dashboard-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -101,6 +104,12 @@
                 </div>
             </div>
         </nav>
+
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+        <script src="./resources/assets/js/Chart.js"></script>
 
         @yield('content')
 
