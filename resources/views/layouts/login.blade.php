@@ -13,7 +13,7 @@
     <!-- Styles -->
 
     <link href="{{URL::asset('public/css/app.css') }}" rel="stylesheet">
-    <link href="{{URL::asset('public/css/dashboardJeffrey.css') }}" rel="stylesheet">
+    <link href="{{URL::asset('public/css/dashboard.css') }}" rel="stylesheet">
     <link href="{{URL::asset('public/css/global.css') }}" rel="stylesheet">
     
 
