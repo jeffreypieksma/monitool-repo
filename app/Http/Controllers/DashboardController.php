@@ -29,10 +29,6 @@ class DashboardController extends Controller
         }
     }
 
-    public function options(){
-    	return view('options');
-    }
-
     public function help(){
         return view('help');
     }

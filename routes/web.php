@@ -29,7 +29,12 @@ Route::get('/create-project', 'CreateProjectController@index')->name('create-pro
 Route::post('/create-project', 'CreateProjectController@store');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-Route::get('/options', 'DashboardController@options');
+
+Route::get('/options', 'OptionsController@index');
+
+
+Route::post('/options/{id}', 'OptionsController@updateProject');
+
 Route::get('/help', 'DashboardController@help');
 
 Route::get('/feed/{param}','FacebookController@index');
