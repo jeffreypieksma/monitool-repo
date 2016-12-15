@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.blade')
+@extends('layouts.login')
 
 @section('content')
 <div class="login-register contentbg">
@@ -66,6 +66,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row footer">
+      <div class="col-md-12 text-center">
+        <a href="">Copyright Monitool</a>
+      </div>
     </div>
 </div>
 </div>

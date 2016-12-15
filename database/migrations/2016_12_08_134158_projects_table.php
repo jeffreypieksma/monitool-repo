@@ -16,8 +16,8 @@ class ProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->integer('user_id');
-            $table->integer('sm_id');
             $table->string('name',50);
+            $table->integer('dateFormat')->nullable();
             $table->timestamps();
         });
     }

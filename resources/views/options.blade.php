@@ -4,79 +4,94 @@
 <div class="dashboard-options">
   <div class="container-fluid">
     <h2>Settings</h2>
+    <a href="{{ url('/dashboard') }}" class="back-button"></a>
     <div class="row">
       <div class="col-md-6">
         <div class="panel">
           <p class="panel-title">Project settings</p>
-          <form action="">
+          <!-- Projects settings -->
+          <form action="" method="POST">
             <div class="form-group">
               <label for="project_name">Project name</label>
-              <input type="text" class="form-control" id="project_name">
+              <input type="text" class="form-control" id="project_name" value="{{ $project->name }}">
             </div>
             <div class="form-group">
               <label for="date_format">Date format</label>
-              <select class="form-control" id="date_format">
-                <option>DD/MM/JJJJ</option>
-                <option>MM/DD/JJJJ</option>
-                <option>JJJJ/MM/DD</option>
+              <?php
+              //$selected = $_POST['dateFormat'];
+              $selected1= '';
+              $selected2= '';
+              $selected3= '';
+              switch ($project->dateFormat) {
+                case '1':
+                  $selected1 = "selected=selected";
+                  break;
+                case '2':
+                  $selected2 = "selected=selected";
+                  break;
+                case '3':
+                  $selected3 = "selected=selected";
+                  break;
+                default:
+                  $selected1 = "selected=selected";
+                  break;
+              }?>
+              <select class="form-control" id="date_format" name="dateFormat">
+                <option {{ $selected1 }} value="1">DD/MM/JJJJ</option>
+                <option {{ $selected2 }} value="2" >MM/DD/JJJJ</option>
+                <option {{ $selected3 }} value="3">JJJJ/MM/DD</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button class="btn btn-danger">Reset project</button>
+
+            <a href="options/{{$project->id}}" class="btn btn-primary">Save</a>
+           
+            <a href="options/delete/{{$project->id}}" class="btn btn-danger" onclick="return confirm('Are you sure ? ')">
+      Delete story
+    </a>
           </form>
         </div>
         <div class="panel">
           <p class="panel-title">Social media settings</p>
           <div class="row">
             <div class="col-md-9 col-md-offset-3">
-              <p class="panel-subtitle token-title">Access token <small class="float-right"><a href="">Where can I find this?</a></small></p>
+              <p class="panel-subtitle token-title">Access token <small class="float-right"><a href="{{ url('/help') }}">Where can I find this?</a></small></p>
             </div>
           </div>
-          <form class="form-horizontal" action="">
+          <!-- Social media -->
+          <form class="form-horizontal" action="" method="">
+            @foreach($services as $service)
               <div class="form-group">
-                <div class="col-xs-3 socialmedia-label fb">
+                <div class="col-xs-3 socialmedia-label {{$service->name}}">
                   <div class="col-xs-2 text-left">
-                    <img src="./public/icons/icon-fb.png" alt="">
+                    <img src="./public/icons/icon-{{$service->name}}.png" alt="">
                   </div>
                   <div class="col-xs-6 text-left">
-                    <p>Facebook</p>
+                    <p> {{$service->name}} </p>
                   </div>
                   <div class="col-xs-3 text-right">
                     <img src="./public/icons/icon-check.png" alt="">
                   </div>
-                </div>
-                <div class="col-xs-9">
-                  <input type="text" class="form-control" id="fb_token">
-                </div>
+                  </div>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="{{$service->name}}_token"
+                    value="{{ $service->acces_token }}">
+                  </div>
               </div>
-              <div class="form-group">
-                <div class="col-xs-3 socialmedia-label yt">
-                  <div class="col-xs-2 text-left">
-                    <img src="./public/icons/icon-yt.png" alt="">
-                  </div>
-                  <div class="col-xs-6 text-left">
-                    <p>Youtube</p>
-                  </div>
-                  <div class="col-xs-3 text-right">
-                    <img src="./public/icons/icon-check.png" alt="">
-                  </div>
-                </div>
-                <div class="col-xs-9">
-                  <input type="text" class="form-control" id="fb_token">
-                </div>
-              </div>
+            @endforeach    
             <button class="btn btn-primary margin-fix">Save</button>
             <button class="btn btn-danger">Reset accounts</button>
           </form>
         </div>
       </div>
+      <!-- Account settings -->
       <div class="col-md-6">
         <div class="panel">
           <p class="panel-title">Account settings</p>
-          <form action="">
+          <form action="" method="">
             <div class="form-group">
               <label for="account_name">Name</label>
-              <input type="text" class="form-control" id="account_name">
+              <input type="text" class="form-control" id="account_name" value="{{ $user->name}}">
+
             </div>
             <p class="panel-subtitle">Change password</p>
             <div class="form-group">
