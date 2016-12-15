@@ -23,7 +23,6 @@
     <script src="{{URL::asset('public/js/dashboard.js') }}"></script>
     <script src="{{URL::asset('public/js/app.js') }}"></script>
 
-
     @yield('style')
 
     @yield('scripts')
@@ -87,9 +86,6 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                    <li>
-                                        <a href="{{ url('/dashboard') }}">Dashboard</a>
-                                    </li>
                                 </ul>
                             </li>
                         @endif
@@ -104,16 +100,7 @@
                 </div>
             </div>
         </nav>
-
-        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-        <script src="./resources/assets/js/Chart.js"></script>
-
         @yield('content')
-
-
     </div>
 </body>
 </html>

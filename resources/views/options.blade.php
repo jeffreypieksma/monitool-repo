@@ -30,7 +30,7 @@
           <p class="panel-title">Social media settings</p>
           <div class="row">
             <div class="col-md-9 col-md-offset-3">
-              <p class="panel-subtitle token-title">Access token <small class="float-right"><a href="">Where can I find this?</a></small></p>
+              <p class="panel-subtitle token-title">Access token <small class="float-right"><a href="{{ url('/help') }}">Where can I find this?</a></small></p>
             </div>
           </div>
           <form class="form-horizontal" action="">

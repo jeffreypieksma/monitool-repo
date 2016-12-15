@@ -21,7 +21,7 @@ class DashboardController extends Controller
             }
             else{
                 $chartData = app('App\Http\Controllers\FacebookController')->insights();
-                return view('dashboard', compact('chartData'));
+                return view('dashboard', compact('chartData', 'project'));
             }
         }
     	else{
