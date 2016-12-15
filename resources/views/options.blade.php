@@ -3,17 +3,6 @@
 @section('content')
 <div class="dashboard-options">
   <div class="container-fluid">
-
-  <?php
-
-    foreach($services as $service){
-      echo $service->name;
-      echo $service->acces_token;
-    }
-   
-    
-  ?>
-  
     <h2>Settings</h2>
     <a href="{{ url('/dashboard') }}" class="back-button"></a>
     <div class="row">
@@ -65,7 +54,7 @@
           <p class="panel-title">Social media settings</p>
           <div class="row">
             <div class="col-md-9 col-md-offset-3">
-              <p class="panel-subtitle token-title">Access token <small class="float-right"><a href="help">Where can I find this?</a></small></p>
+              <p class="panel-subtitle token-title">Access token <small class="float-right"><a href="{{ url('/help') }}">Where can I find this?</a></small></p>
             </div>
           </div>
           <!-- Social media -->

@@ -1,13 +1,13 @@
 $( document ).ready(function() { 
 
-	var filterbutton = $( "#mainfilter" );
+	var filterbutton = $( ".mainfilter" );
   var formbutton = $( "#formbutton" );
   var filterwrapper = $( ".filterwrapper" ).css("display","none");
   var graphwrapper = $( ".graphwrapper" ).css("display","block");
 	var clicked = false;
 
 	filterbutton.click(function() {
-  		
+console.log('ffs');
   		if(!clicked){
         panelVisibility(0);
   			clicked = true;  
