@@ -3,6 +3,13 @@
 <!-- <script>
   var myChart = new Chart({...})
 </script> -->
+<?php
+  
+  //dd($data);
+  //dd($data['insights']);
+  //dd($data['likes']);
+
+?>
 <div class="dashboard">
   <div class="container-fluid">
     <div class="row">
@@ -13,9 +20,9 @@
             <div class="buttons-filter mainfilter"></div>
             <div class="graphwrapper">
               <div id="chartdiv"></div>
-            </div>
+           </div>
 
-          <section>
+        <section>
         <!-- Graph and filter -->
           <form id="filterform" class="filterwrapper">
             <div class="buttons-filter buttons-back mainfilter"></div>
@@ -110,9 +117,5 @@
 
 </script>
 <script src="./resources/assets/js/chart-dashboard.js"></script>
-<?php
 
-  // dd($data);
-
-?>
 @endsection
