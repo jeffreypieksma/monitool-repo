@@ -1,6 +1,4 @@
  //var chartData = generateChartData();
-
-console.log(chartData);
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",

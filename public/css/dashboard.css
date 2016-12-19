@@ -3,10 +3,6 @@
     src: url("../fonts/Phosphate-Solid.ttf") format("truetype");
 }
 
-body{
-	background-color: #ede9e6;
-}
-
 /* latin-ext */
 @font-face {
   font-family: 'Raleway';
@@ -38,6 +34,10 @@ body{
   font-weight: 600;
   src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(https://fonts.gstatic.com/s/raleway/v11/xkvoNo9fC8O2RDydKj12b_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+body{
+	background-color: #ede9e6;
 }
 
 @media screen and (max-width: 767px) {
@@ -155,15 +155,15 @@ hr.horizontal-break, hr.break {
 
 .funkyradio input[type="radio"]:empty ~ label,
 .funkyradio input[type="checkbox"]:empty ~ label {
-  position: relative;
-  line-height: 2.5em;
-  text-indent: 3.25em;
-  margin-top: 2em;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+	position: relative;
+	line-height: 2.5em;
+	text-indent: 3.25em;
+	margin-top: 2em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .funkyradio input[type="radio"]:empty ~ label:before,

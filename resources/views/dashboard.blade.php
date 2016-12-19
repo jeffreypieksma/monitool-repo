@@ -72,7 +72,7 @@
                     </div>
                   </div>
 
-                <button class="btn btn-primary" type="button" id="formbutton">Submit filter</button>
+                <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
             </div>
           </form>
         </section>
@@ -82,11 +82,32 @@
 
 </div>
 
-
-
 <script type="text/javascript">
-
+  
   var chartData = <?php echo $data['insights']; ?>
+
+  function displayFilter(filtervalue){
+      if(filtervalue != null){
+        switch(filtervalue[0]) {
+          case 1:
+            console.log("Views");  
+              break;
+          case 2:
+             var chartData = <?php echo $data['likes']; ?>
+              break;
+          case 3:
+            console.log("Shares");  
+              break;
+          default:
+            var chartData = <?php echo $data['insights']; ?>
+
+            break;
+               
+        }    
+    }
+  }
+
+
 </script>
 <script src="./resources/assets/js/chart-dashboard.js"></script>
 <?php
