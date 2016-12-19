@@ -1,8 +1,39 @@
 @extends('layouts.dashboard')
 @section('content')
-<!-- <script>
-  var myChart = new Chart({...})
-</script> -->
+<script type="text/javascript">
+  var chartData = <?php echo $data['insights']; ?>
+
+  function displayFilter(filtervalue){
+    console.log(filtervalue[0]);
+      if(filtervalue != null){
+        switch(filtervalue[0]) {
+          case 1:
+            console.log("Views");  
+            chartData = <?php echo $data['insights']; ?>
+
+              break;
+          case 2:
+            console.log("Likes"); 
+            chartData = <?php echo $data['likes']; ?>
+
+              break;
+          case 3:
+            console.log("Shares");  
+              break;
+          default:
+            chartData = <?php echo $data['insights']; ?>
+
+            break;
+        }
+        console.log(filtervalue[0]);
+    }else{
+      chartData = <?php echo $data['insights']; ?>
+
+    }
+  }
+
+
+</script>
 <?php
   
   //dd($data);
@@ -90,43 +121,7 @@
 </div>
 
 
-<script type="text/javascript">
-  
-  var chartData ='';
 
-
-
-  function displayFilter(filtervalue){
-    console.log(filtervalue[0]);
-      if(filtervalue != null){
-        
-        switch(filtervalue[0]) {
-          case 1:
-            console.log("Views");  
-            chartData = <?php echo $data['insights']; ?>
-
-              break;
-          case 2:
-            console.log("Likes"); 
-            chartData = <?php echo $data['insights']; ?>
-
-              break;
-          case 3:
-            console.log("Shares");  
-              break;
-          default:
-            chartData = <?php echo $data['insights']; ?>
-            break;
-               
-        } 
-    }else{
-      chartData = <?php echo $data['insights']; ?>
-
-    }
-  }
-
-
-</script>
 <script src="./resources/assets/js/chart-dashboard.js"></script>
 
 @endsection

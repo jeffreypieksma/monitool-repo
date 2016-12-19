@@ -78,7 +78,6 @@ function valideFormValue(form){
 
 
   setGraphData(filtervalue);
-
 }
 
 function setGraphData(filtervalue){
