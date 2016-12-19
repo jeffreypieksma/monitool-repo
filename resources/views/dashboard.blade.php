@@ -45,7 +45,10 @@
     </div>
   </div>
 </div>
+
+
 <script type="text/javascript">
+
   var chartData = <?php echo $data['insights']; ?>
 </script>
 <script src="./resources/assets/js/chart-dashboard.js"></script>
