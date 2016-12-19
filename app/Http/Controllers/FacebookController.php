@@ -15,21 +15,8 @@ class FacebookController extends Controller
 	}
 
 	public function dashboard(){
-		$data = array();
-
-		//insights ophalen
-		$data['data']['insights']	= $this->insights();
-
-		//fb insights omzetten naar js object
-		$fbDataArray = [];
-		foreach($data['data']['insights']['data'][0]['values'] as $value){
-			 $fbdate = strtotime($value["end_time"]);
-			 $date = date('D M d Y h:i:s OT (e)', $fbdate); //juiste date format 
-			 $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);
-		}
-
 		//js object meegeven
-		$data['data']['insights'] 	= json_encode($fbDataArray);
+		$data['data']['insights'] 	= $this->insights();
 		//feed ophalen
 		$data['data']['feed']		= $this->feed();
 
@@ -44,7 +31,7 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-		return $this->dataToJS($data['data']);
+		return $data['data'];
 	}
 
 	public function insights(){
@@ -78,8 +65,7 @@ class FacebookController extends Controller
             $date = date('D M d Y h:i:s OT (e)', $fbdate);
          $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);
         }
-        $chartData = json_encode($fbDataArray);
-        return $chartData;
+        return json_encode($fbDataArray);
     }
 
 }
