@@ -12,7 +12,11 @@
 
     <!-- Styles -->
     
+<<<<<<< HEAD
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+=======
     <link href="{{URL::asset('public/css/graph.css') }}" rel="stylesheet">
+>>>>>>> c044dacd358086c029a69ea4c16cc1025ab4fa17
     <link href="{{URL::asset('public/css/app.css') }}" rel="stylesheet">
     <link href="{{URL::asset('public/css/dashboard.css') }}" rel="stylesheet">
     <link href="{{URL::asset('public/css/global.css') }}" rel="stylesheet">
@@ -100,6 +104,14 @@
                 </div>
             </div>
         </nav>
+<<<<<<< HEAD
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+        <script src="./resources/assets/js/Chart.js"></script>
+=======
+>>>>>>> c044dacd358086c029a69ea4c16cc1025ab4fa17
         @yield('content')
     </div>
 </body>

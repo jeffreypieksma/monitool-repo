@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.dashboardcards')
 @section('content')
 <!-- <script>
   var myChart = new Chart({...})
@@ -12,17 +12,9 @@
           <div class="buttons-filter buttons-bar"></div>
           <div class="buttons-filter"></div>
           <div id="chartdiv"></div>
-          </div>
         </div>
       </div>
     </div>
-    <div class="dasboardcards">
-      <div class="col-md-12">
-        <div class="panel cards">
-          <p class="panel-title text-left">Verhaal kaarten</p>
-            <div class="col-md-2">
-              <div class="eachcard">
-
     <div class="row dashboard-bottom-half">
       <div class="col-md-4">
         <div class="panel">
@@ -45,13 +37,22 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  var chartData = <?php echo $data['insights']; ?>
-</script>
-<script src="./resources/assets/js/chart-dashboard.js"></script>
 <?php
 
-  // dd($data);
+  $fbDataArray = [];
 
+  foreach($data[0]['values'] as $value){
+     $fbdate = strtotime($value["end_time"]);
+      $date = date('D M d Y h:i:s OT (e)', $fbdate);
+     $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);
+  }
+
+   $chartData = json_encode($fbDataArray);
+
+  //dd($fbDataArray);
 ?>
+<script type="text/javascript">
+  var chartData = <?php echo $chartData; ?>
+</script>
+<script src="./resources/assets/js/chart-dashboard.js"></script>
 @endsection

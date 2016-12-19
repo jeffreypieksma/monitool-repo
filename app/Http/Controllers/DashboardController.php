@@ -9,8 +9,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use SammyK\FacebookQueryBuilder\FQB;
 
+use App\Http\Controllers\FacebookController;
+
 class DashboardController extends Controller
 {
+    public function __construct(){
+        //de class ophalen van de bijbehorende socialmedia als die is aangemaakt
+        if ( true /* user has facebook */ ) {
+            $this->FacebookController = new FacebookController;
+        }
+    }
 
     public function index(){
     	$id = Auth::id();
@@ -20,8 +28,8 @@ class DashboardController extends Controller
                 return redirect('create-project');
             }
             else{
-                $chartData = app('App\Http\Controllers\FacebookController')->insights();
-                return view('dashboard', compact('chartData', 'project'));
+                $data = $this->FacebookController->dashboard();
+                return view('dashboard', $data);
             }
             // return redirect('create-project');
         }
@@ -30,7 +38,7 @@ class DashboardController extends Controller
         }
     }
 
-    public function help(){
-        return view('help');
+    public function options(){
+    	return view('options');
     }
 }
