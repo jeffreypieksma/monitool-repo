@@ -89,28 +89,39 @@
 
 </div>
 
+
 <script type="text/javascript">
   
-  var chartData = <?php echo $data['insights']; ?>
+  var chartData ='';
+
+
 
   function displayFilter(filtervalue){
+    console.log(filtervalue[0]);
       if(filtervalue != null){
+        
         switch(filtervalue[0]) {
           case 1:
             console.log("Views");  
+            chartData = <?php echo $data['insights']; ?>
+
               break;
           case 2:
-             var chartData = <?php echo $data['likes']; ?>
+            console.log("Likes"); 
+            chartData = <?php echo $data['insights']; ?>
+
               break;
           case 3:
             console.log("Shares");  
               break;
           default:
-            var chartData = <?php echo $data['insights']; ?>
-
+            chartData = <?php echo $data['insights']; ?>
             break;
                
-        }    
+        } 
+    }else{
+      chartData = <?php echo $data['insights']; ?>
+
     }
   }
 

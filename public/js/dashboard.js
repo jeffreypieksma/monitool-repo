@@ -53,15 +53,15 @@ function getFormValue(){
     var form = [];
     form.push(facebook,youtube,service1,service2);
 
-    valideFormValue(parseInt(form));
+    valideFormValue(form);
 }
 
 function valideFormValue(form){
 
-  var facebook = form[0];
-  var youtube = form[1];
-  var service1 = form[2];
-  var service2 = form[3];
+  var facebook = parseInt(form[0]);
+  var youtube = parseInt(form[1]);
+  var service1 = parseInt(form[2]);
+  var service2 = parseInt(form[3]);
 
   if(facebook == null || facebook == '') facebook = 1;
   if(facebook <  0 || facebook >  3) facebook = 1;
