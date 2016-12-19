@@ -23,6 +23,7 @@ class DashboardController extends Controller
                 $chartData = app('App\Http\Controllers\FacebookController')->insights();
                 return view('dashboard', compact('chartData', 'project'));
             }
+            // return redirect('create-project');
         }
     	else{
             return view('auth.login');

@@ -32,8 +32,10 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('/options', 'OptionsController@index');
 
-
-Route::post('/options/{id}', 'OptionsController@updateProject');
+Route::post('/options/project', 'OptionsController@updateProject');
+Route::post('/options/service', 'OptionsController@updateService');
+Route::post('/options/account', 'OptionsController@updateAccount');
+Route::get('/options/delete', 'OptionsController@delete');
 
 Route::get('/help', 'DashboardController@help');
 

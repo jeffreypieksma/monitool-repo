@@ -45,6 +45,15 @@ body{
   float: right;
 }
 
+.link-create-story a{
+  color: white;
+  text-decoration: underline;
+}
+
+.link-create-story a:hover{
+  opacity: .5;
+}
+
 /*** Navigation ***/
 
 .navbar.navbar-default.navbar-static-top{background-color:#1D7FAA;}
