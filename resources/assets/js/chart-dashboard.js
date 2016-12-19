@@ -1,6 +1,6 @@
  //var chartData = generateChartData();
 
-console.log(chartData);
+// console.log(chartData);
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
@@ -63,78 +63,36 @@ function zoomChart() {
 }
 
 
-// // generate some random data, quite different range
-// function generateChartData() {
-//     var chartData = [];
-//     var firstDate = new Date();
-//     firstDate.setDate(firstDate.getDate() - 5);
+var overallDoughnutChart = document.getElementById("OverallDoughnutChart");
 
-//     for (var i = 0; i < 100; i++) {
-//         // we create date objects here. In your data, you can have date strings
-//         // and then set format of your dates using chart.dataDateFormat property,
-//         // however when possible, use date objects, as this will speed up chart rendering.
-//         var newDate = new Date(firstDate);
-//         newDate.setDate(newDate.getDate() + i);
+console.log(overallDoughnutChart);
+var newDoughnutChart = new Chart(overallDoughnutChart, {
+    type: 'doughnut',
+    data: {
+        labels: [
+            "Facebook",
+            "Youtube"
+        ],
+        datasets: [{
+            data: [300, 50],
+            backgroundColor: [
+                "#36A2EB",
+                "#FF6384"                
+            ],
+            hoverBackgroundColor: [
+                "#36A2EB",
+                "#FF6384"
+            ]
+        }]},
+    animation:{
+        animateScale:true
+    }
+    options: {
+        scales: {
+            width: 500, // the same as right - left
+            height: 100 // the same as bottom - top
+        }
+    }
+   
 
-//         var visits = Math.round(Math.random() * (40 + i / 5)) + 20 + i;
-
-//         chartData.push({
-//             date: newDate,
-//             visits: visits
-           
-//         });
-//     }
-//     return chartData;
-// }
-
-
-//--------------------------------chartjs----------------------------------------// 
-
-// var ctx = document.getElementById("myChart");
-// var myChart = new Chart(ctx, {
-//   type: 'line',
-//   data: {
-//       labels: [12, 13, 24, 53, 13, 24, 53],
-//       datasets: [
-//       {
-//           label: 'Youtube views',
-//           fill: false,
-//           data: [12, 43, 32, 2, 43, 32, 2],
-//           backgroundColor: [
-//               'rgba(255, 99, 132, 0.2)',
-//           ],
-//           borderColor: [
-//               'rgba(255,99,132,1)',
-//           ],
-//           borderWidth: 1
-//       },
-//       {
-//           label: 'Facebook views',
-//           fill: false,
-//           data: [43, 34, 12, 56, 34, 12, 56],
-//           backgroundColor: [
-//               'rgba(99,132,255, 0.2)',
-//           ],
-//           borderColor: [
-//               'rgb(99,132,255)',
-//           ],
-//           borderWidth: 1
-//       }
-//       ]
-//   },
-//   options: {
-//     responsive: true,
-//     maintainAspectRatio: false,
-//     legend: {
-//           display: true,
-//           position: 'top'
-//       },
-//     scales: {
-//         yAxes: [{
-//             ticks: {
-//                 beginAtZero:true
-//             }
-//         }]
-//     }
-//   }
-// });
+});

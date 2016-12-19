@@ -1,8 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
-<!-- <script>
-  var myChart = new Chart({...})
-</script> -->
+
 <div class="dashboard">
   <div class="container-fluid">
     <div class="row dashboard-top-half">
@@ -15,31 +13,29 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="dasboardcards">
-      <div class="col-md-12">
-        <div class="panel cards">
-          <p class="panel-title text-left">Verhaal kaarten</p>
-            <div class="col-md-2">
-              <div class="eachcard">
+    
+      <div class="row dashboard-bottom-half">
+        <div class="col-md-4">
+          <div class="panel">
+            <p class="panel-title">Overall</p>
+              <div class="OverallDoughnutChartContainer">
+                <canvas id="OverallDoughnutChart" width="200" height="200"></canvas>
+              </div>
 
-    <div class="row dashboard-bottom-half">
-      <div class="col-md-4">
-        <div class="panel">
-          <p class="panel-title">Overall</p>
+              
 
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="panel">
-          <p class="panel-title">Facebook</p>
+        <div class="col-md-4">
+          <div class="panel">
+            <p class="panel-title">Facebook</p>
 
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="panel">
-          <p class="panel-title">Youtube</p>
-
+        <div class="col-md-4">
+          <div class="panel">
+            <p class="panel-title">Youtube</p>
+          </div>
         </div>
       </div>
     </div>
