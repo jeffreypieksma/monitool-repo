@@ -89,44 +89,41 @@
 
 </div>
 
-
+<script src="./resources/assets/js/chart-dashboard.js"></script>
 <script type="text/javascript">
   
-  var chartData ='';
+  //var chartData ='';
 
-
+   var chartData = <?php echo $data['insights']; ?>;
+   dashboardMakeChart(chartData);
+  
 
   function displayFilter(filtervalue){
-    console.log(filtervalue[0]);
+
       if(filtervalue != null){
         
         switch(filtervalue[0]) {
           case 1:
-            console.log("Views");  
-            chartData = <?php echo $data['insights']; ?>
-
-              break;
-          case 2:
-            console.log("Likes"); 
-            chartData = <?php echo $data['insights']; ?>
-
-              break;
-          case 3:
-            console.log("Shares");  
-              break;
-          default:
-            chartData = <?php echo $data['insights']; ?>
+            console.log("Views");   
+            var chartData = <?php echo $data['insights']; ?>;
+            dashboardMakeChart(chartData);
             break;
-               
+          case 2:
+            console.log("Likes");
+            var chartData = <?php echo $data['likes']; ?>;
+            dashboardMakeChart(chartData);
+            break;
+          case 3:
+            console.log("Shares");
+
+            break;        
         } 
-    }else{
-      chartData = <?php echo $data['insights']; ?>
 
     }
   }
 
 
 </script>
-<script src="./resources/assets/js/chart-dashboard.js"></script>
+
 
 @endsection
