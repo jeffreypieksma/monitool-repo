@@ -17,8 +17,9 @@ class FacebookController extends Controller
 	public function dashboard(){
 		//js object meegeven
 		$data['data']['insights'] 	= $this->insights();
+		$data['data']['likes']		= $this->page_likes();
 		//feed ophalen
-		$data['data']['feed']		= $this->feed();
+		//$data['data']['feed']		= $this->feed();
 
 		return $data;
 	}
@@ -31,8 +32,22 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-		return $data['data'];
+		return $this->likesToJS($data['data']);
+		//return $data['data'];
 	}
+
+	public function page_likes(){
+        $request = $this->fqb->node("$this->node/insights/page_fans_by_like_source")
+                       ->accessToken($this->access_token)
+                       ->graphVersion('v2.8')
+                       ->modifiers(array('since' => '2016-10-24', 'period' => 'day'));
+        $context     = stream_context_create(['http' => ['ignore_errors' => true]]);
+        $response     = file_get_contents((string) $request, null, $context);
+        $data         = json_decode($response, true);
+
+        return $this->likesToJS($data['data']);
+        //return $data['data'];
+    }
 
 	public function insights(){
 	    $request = $this->fqb->node("$this->node/insights/page_impressions")
@@ -42,7 +57,9 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-		return $this->dataToJS($data['data']);
+
+		return $this->insightsToJS($data['data']);
+		//return $data['data'];
 	}
 
 	public function likes(){
@@ -54,11 +71,10 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-		// return $this->dataToJS($data['data']);
 		return $data['data'];
 	}
 
-	public function dataToJS($data){
+	public function insightsToJS($data){
         $fbDataArray = [];
         foreach($data[0]['values'] as $value){
             $fbdate = strtotime($value["end_time"]);
@@ -68,4 +84,22 @@ class FacebookController extends Controller
         return json_encode($fbDataArray);
     }
 
+    public function likesToJS($data){
+        $fbDataArray = [];
+        foreach($data[0]['values'] as $value){
+            $fbdate = strtotime($value["end_time"]);
+            $date = date('D M d Y h:i:s OT (e)', $fbdate);
+            if(empty($value["value"])){
+            	$value["value"]["page_timeline"] = '0';
+            }
+			else{
+				if (empty($value["value"]["page_timeline"])) {
+					$value["value"]["page_timeline"] = 0 + $value["value"]["page_profile"];
+				}				
+			}
+         $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]["page_timeline"]);
+        }
+
+        return json_encode($fbDataArray);
+    }
 }

@@ -4,6 +4,7 @@ console.log(chartData);
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
+    "categoryField": "category",
     "color": "#045071",
     "fontFamily": "RalewayRegular",
     "fontSize": 12,
@@ -17,17 +18,31 @@ var chart = AmCharts.makeChart("chartdiv", {
         "position": "left"
     }],
     "mouseWheelZoomEnabled": false,
-    "graphs": [{
-        "id": "g1",
+    "graphs": [
+    {
+        "id": "insights",
         "type": "smoothedLine",
         "hideBulletsCount": 50,
         "title": "red line",
         "valueField": "visits",
-        "useLineColorForBulletBorder": false,
+        "useLineColorForBulletBorder": true,
         "balloon":{
             "drop":true
         }
-    }],
+    },
+    {
+        "id": "likes",
+        "type": "smoothedLine",
+        "hideBulletsCount": 50,
+        "title": "red line",
+        "valueField": "likes",
+        "useLineColorForBulletBorder": true,
+        "connect": false,
+        "balloon":{
+            "drop":true
+        }
+    }
+    ],
     "chartScrollbar": {
         "autoGridCount": true,
         "graph": "g1",
