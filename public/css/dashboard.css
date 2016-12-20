@@ -630,11 +630,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
   margin-right: -30px;
 }
 
-.amcharts-chart-div > a{
-	display: none !important;
-	/*Haalt het 'js charts by amCharts' weg*/
-}
-
 /*Export knop*/
 
 .export-main>a{
