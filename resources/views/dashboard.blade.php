@@ -1,12 +1,20 @@
 @extends('layouts.dashboard')
 @section('content')
 
+<?php
+  
+  //dd($data);
+  //dd($data['insights']);
+  //dd($data['likes']);
+
+?>
+
 <div class="dashboard">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="panel graph fixed-height">
-          <p class="panel-title text-left">Facebook & Youtube - Views</p>
+          <p id="graph_title" class="panel-title text-left"></p>
           <div class="buttons-filter buttons-bar"></div>
           <div class="buttons-filter"></div>
           <div id="chartdiv"></div>
@@ -37,6 +45,12 @@
         </div>
             
           <section>
+            <div class="buttons-filter mainfilter"></div>
+            <div class="graphwrapper">
+              <div id="chartdiv"></div>
+           </div>
+
+        <section>
         <!-- Graph and filter -->
           <form id="filterform" class="filterwrapper">
             <div class="buttons-filter buttons-back mainfilter"></div>
@@ -93,7 +107,7 @@
                     </div>
                   </div>
 
-                <button class="btn btn-primary" type="button" id="formbutton">Submit filter</button>
+                <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
             </div>
           </form>
         </section>
@@ -103,18 +117,45 @@
 
 </div>
 
-
-
-<script type="text/javascript">
-
-  var chartData = <?php echo $data['insights']; ?>
-
-  <?php //dd($data['insights']);?>
-</script>
-<script src="./resources/assets/js/chart-dashboard.js"></script>
 <?php
-
-  // dd($data);
-
+// foreach ($data['feed']['data'] as $post) {
+//   if (isset($post['message'])) {
+//     echo "<p class='post-message'>" . $post['message'] . "</p>";
+//   }
+// }
 ?>
+
+<script src="./resources/assets/js/chart-dashboard.js"></script>
+<script type="text/javascript">
+   var chartData = <?php echo $data['insights']; ?>;
+   var graphTitle = document.getElementById("graph_title");
+   graphTitle.innerHTML = "Facebook - Impressions";
+   dashboardMakeChart(chartData);
+  
+  function displayFilter(filtervalue){
+
+      if(filtervalue != null){
+        
+        switch(filtervalue[0]) {
+          case 1:
+            console.log("Views");   
+            var chartData = <?php echo $data['insights']; ?>;
+            graphTitle.innerHTML = "Facebook - Impressions";
+            dashboardMakeChart(chartData);
+            break;
+          case 2:
+            console.log("Likes");
+            var chartData = <?php echo $data['likes']; ?>;
+            graphTitle.innerHTML = "Facebook - Likes";
+            dashboardMakeChart(chartData);
+            break;
+          case 3:
+            console.log("Shares");
+            break;        
+        } 
+
+    }
+  }
+</script>
+
 @endsection

@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers;
-
 use SammyK\FacebookQueryBuilder\FQB;
 
 class FacebookController extends Controller
@@ -15,14 +14,12 @@ class FacebookController extends Controller
 		$this->node = '1775886599336178';
 	}
 
-	public function dashboard(){
-		//js object meegeven
-		$data['data']['insights'] 	= $this->insights();
-		$data['data']['likes']		= $this->page_likes();
-		$data['data']['feed']		= $this->feed();
-
-		return $data;
-	}
+    public function dashboard(){
+        $data['data']['insights']   = $this->insights();
+        $data['data']['likes']      = $this->page_likes();
+        $data['data']['feed']     	= $this->feed();
+        return $data;
+    }
 
 	public function feed(){
 	    $request = $this->fqb->node("$this->node/feed")
@@ -32,28 +29,25 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-		// return $this->likesToJS($data['data']);
+		//return $this->likesToJS($data['data']);
 		return $data['data'];
 	}
 
-	public function post_dates(){
-	    $request = $this->fqb->node("$this->node/feed")
-	    			->fields("created_time")
-	               	->accessToken($this->access_token)
-	               	->graphVersion('v2.8');
-		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
-		$response 	= file_get_contents((string) $request, null, $context);
-		$data 		= json_decode($response, true);
-
-		$formatedData = array();
-		foreach ($data['data'] as $key => $value) 
-		{
-			$newDatFormat = strtotime($value["created_time"]);
-			$formatedData[] = array( "created_time" => date('D M d Y h:i:s OT (e)', $newDatFormat), "id" => $value["id"] );
-		}
-
-		return $formatedData;
-	}
+    public function post_dates(){
+        $request = $this->fqb->node("$this->node/feed")
+                    ->fields("created_time")
+                    ->accessToken($this->access_token)
+                    ->graphVersion('v2.8');
+        $context    = stream_context_create(['http' => ['ignore_errors' => true]]);
+        $response   = file_get_contents((string) $request, null, $context);
+        $data       = json_decode($response, true);
+        $formatedData = array();
+        foreach ($data['data'] as $key => $value) {
+            $newDatFormat = strtotime($value["created_time"]);
+            $formatedData[] = array( "created_time" => date('D M d Y h:i:s OT (e)', $newDatFormat), "id" => $value["id"] );
+        }
+        return $formatedData;
+    }
 
 	public function page_likes(){
         $request = $this->fqb->node("$this->node/insights/page_fans_by_like_source")
@@ -63,23 +57,23 @@ class FacebookController extends Controller
         $context     = stream_context_create(['http' => ['ignore_errors' => true]]);
         $response     = file_get_contents((string) $request, null, $context);
         $data         = json_decode($response, true);
-
         return $this->likesToJS($data['data']);
-        // return $data['data'];
+        //return $data['data'];
     }
 
-	public function insights(){
-	    $request = $this->fqb->node("$this->node/insights/page_impressions")
-	               	->accessToken($this->access_token)
-	               	->graphVersion('v2.8')
-	               	->modifiers(array('since' => '2016-10-24', 'period' => 'day'));
-		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
-		$response 	= file_get_contents((string) $request, null, $context);
-		$data 		= json_decode($response, true);
+    public function insights(){
+        $request = $this->fqb->node("$this->node/insights/page_impressions")
+                    ->accessToken($this->access_token)
+                    ->graphVersion('v2.8')
+                    ->modifiers(array('since' => '2016-10-24', 'period' => 'day'));
+        $context    = stream_context_create(['http' => ['ignore_errors' => true]]);
+        $response   = file_get_contents((string) $request, null, $context);
+        $data       = json_decode($response, true);
+        return $this->insightsToJS($data['data']);
 
-		return $this->insightsToJS($data['data']);
-		//return $data['data'];
-	}
+        //return $data['data'];
+
+    }
 
 	public function insightsToJS($data)
 	{
@@ -108,24 +102,19 @@ class FacebookController extends Controller
         return json_encode($fbDataArray);
     }
 
-    public function likesToJS($data)
-    {
+    public function likesToJS($data){
         $fbDataArray = [];
-        foreach($data[0]['values'] as $value)
-        {
+        foreach($data[0]['values'] as $value){
             $fbdate = strtotime($value["end_time"]);
             $date = date('D M d Y h:i:s OT (e)', $fbdate);
-            if(empty($value["value"]))
-            {
-            	$value["value"]["page_timeline"] = '0';
+            if(empty($value["value"])){
+                $value["value"]["page_timeline"] = '0';
             }
-			elseif(empty($value["value"]["page_timeline"])) 
-			{
-				$value["value"]["page_timeline"] = 0 + $value["value"]["page_profile"];			
-			}
-         	$fbDataArray[] = array('date' => $date, 'visits' => $value["value"]["page_timeline"]);
+            elseif(empty($value["value"]["page_timeline"])) {
+                $value["value"]["page_timeline"] = 0 + $value["value"]["page_profile"];
+            }
+            $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]["page_timeline"]);
         }
-
         return json_encode($fbDataArray);
     }
 }
