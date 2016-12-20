@@ -83,7 +83,6 @@ function valideFormValue(form){
   var filtervalue = [];
   filtervalue.push(facebook,youtube,service1,service2);
 
-
   setGraphData(filtervalue);
 }
 

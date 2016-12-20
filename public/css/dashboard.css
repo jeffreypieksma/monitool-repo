@@ -3,13 +3,9 @@
     src: url("../fonts/Phosphate-Solid.ttf") format("truetype");
 }
 
-<<<<<<< HEAD
 body{
 	background-color: #ede9e6;
 }
-
-=======
->>>>>>> dfbd1ca31d666d7f592de7001d794da2a0e13e7c
 /* latin-ext */
 @font-face {
   font-family: 'Raleway';
@@ -43,13 +39,10 @@ body{
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
-<<<<<<< HEAD
-=======
 body{
 	background-color: #ede9e6;
 }
 
->>>>>>> dfbd1ca31d666d7f592de7001d794da2a0e13e7c
 @media screen and (max-width: 767px) {
     .token-title small{
     	display: none;
@@ -68,8 +61,6 @@ body{
     }
 }
 
-<<<<<<< HEAD
-=======
 /*@media screen and (max-height: 767px) {
 }
 .dashboard-help{
@@ -77,7 +68,6 @@ body{
 	overflow-y: scroll;
 }*/
 
->>>>>>> dfbd1ca31d666d7f592de7001d794da2a0e13e7c
 .margin-fix{
 	margin-left: -15px;
 }
@@ -129,9 +119,6 @@ hr.horizontal-break, hr.break {
     background: #FF9621;
     border: none;
 }
-
-<<<<<<< HEAD
-=======
 
 /*** Filter Dashboard ****/
 
@@ -349,7 +336,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
 
 .panel{
 	background-color: white;
-	margin: 15px;
 	padding: 15px;
 	border-bottom: 1px solid #045071;
 }
@@ -651,7 +637,11 @@ ul.nav.navbar-nav a{color:#fff !important;}
 
 .dashboard .col-md-2{height: 200px;}
 
+/*
+>>>>>>> a474a68ee7821fd4f4f51a193bd5eb73f733c057
 .dashboard .graph{padding: 5px;}
+*/
+
 
 .dashboard .panel-title{
 	width: 80%;
@@ -660,9 +650,11 @@ ul.nav.navbar-nav a{color:#fff !important;}
 }
 
 .dashboard .panel{
-	margin: 10px;
+	/*margin: 10px;*/
 	height: 100%;
 	overflow: hidden;
+	margin-top:20px;
+	padding:15px !important;
 }
 
 .dashboard .buttons-filter{
