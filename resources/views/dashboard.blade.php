@@ -1,8 +1,5 @@
 @extends('layouts.dashboard')
 @section('content')
-<!-- <script>
-  var myChart = new Chart({...})
-</script> -->
 <?php
   
   //dd($data);
@@ -15,7 +12,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="panel graph fixed-height">
-          <p class="panel-title text-left">Facebook & Youtube - Views</p>
+          <p id="graph_title" class="panel-title text-left"></p>
           <div class="buttons-filter buttons-bar"></div>
             <div class="buttons-filter mainfilter"></div>
             <div class="graphwrapper">
@@ -94,14 +91,18 @@
 <script src="./resources/assets/js/chart-dashboard.js"></script>
 <script type="text/javascript">
   
+<<<<<<< HEAD
   //var chartData ='';
 
   <?php dd( $data['insights'] ); ?>
 
+=======
+>>>>>>> dfbd1ca31d666d7f592de7001d794da2a0e13e7c
    var chartData = <?php echo $data['insights']; ?>;
+   var graphTitle = document.getElementById("graph_title");
+   graphTitle.innerHTML = "Facebook - Impressions";
    dashboardMakeChart(chartData);
   
-
   function displayFilter(filtervalue){
 
       if(filtervalue != null){
@@ -110,24 +111,21 @@
           case 1:
             console.log("Views");   
             var chartData = <?php echo $data['insights']; ?>;
+            graphTitle.innerHTML = "Facebook - Impressions";
             dashboardMakeChart(chartData);
             break;
           case 2:
             console.log("Likes");
             var chartData = <?php echo $data['likes']; ?>;
+            graphTitle.innerHTML = "Facebook - Likes";
             dashboardMakeChart(chartData);
             break;
           case 3:
             console.log("Shares");
-
             break;        
         } 
 
     }
   }
-
-
 </script>
-
-
 @endsection

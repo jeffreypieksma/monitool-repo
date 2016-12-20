@@ -20,6 +20,13 @@ $( document ).ready(function() {
 
   formbutton.click(function() {
     getFormValue();
+    if(!clicked){
+        panelVisibility(0);
+        clicked = true;  
+      }else{
+        panelVisibility(1);
+        clicked = false;
+      }
   });
 
   function panelVisibility(value){
@@ -77,7 +84,6 @@ function valideFormValue(form){
   filtervalue.push(facebook,youtube,service1,service2);
 
   setGraphData(filtervalue);
-
 }
 
 function setGraphData(filtervalue){
