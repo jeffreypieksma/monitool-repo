@@ -31,6 +31,7 @@ class DashboardController extends Controller
                 $data = $this->FacebookController->dashboard();
                 return view('dashboard', $data);
             }
+            // return redirect('create-project');
         }
     	else{
             return view('auth.login');
@@ -39,5 +40,8 @@ class DashboardController extends Controller
 
     public function options(){
     	return view('options');
+    }
+    public function help(){
+        return view('help');
     }
 }

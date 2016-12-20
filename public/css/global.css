@@ -45,6 +45,15 @@ body{
   float: right;
 }
 
+.link-create-story a{
+  color: white;
+  text-decoration: underline;
+}
+
+.link-create-story a:hover{
+  opacity: .5;
+}
+
 /*** Navigation ***/
 
 .navbar.navbar-default.navbar-static-top{background-color:#1D7FAA;}
@@ -95,7 +104,9 @@ ul.nav.navbar-nav a{color:#fff !important;}
 */
 
 /*** Buttons ***/
-
+.btn{
+  width:120px;
+}
 .button{
   background-color:#FF9621;
   padding-left:15px;
@@ -103,21 +114,7 @@ ul.nav.navbar-nav a{color:#fff !important;}
   padding-top:10px;
   padding-bottom:10px;
   border-radius:3px;
-}
-a.button{
-  text-decoration: none;
-  color:#fff;
-}
-.button:hover{
-  background-color:#FCA94C;
-}
-
-.button{
-  background-color:#FF9621;
-  padding-left:15px;
-  padding-right:15px;
-  padding-top:10px;
-  padding-bottom:10px;
+  width:120px;
 }
 
 a.button{text-decoration: none;color:#fff;}
@@ -131,6 +128,7 @@ a.button{text-decoration: none;color:#fff;}
   padding-bottom:10px;
   color:#1D7FAA;
   font-weight: bold;
+  width:120px;
 }
 a.btn.btn-primary.white{
   text-decoration: none;

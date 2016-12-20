@@ -11,11 +11,8 @@
                     <span class="large-text">In one place</span>
                     <a href="/monitool-repo/dashboard" class="button">Start using Monitool!</a>
                 </div>
-                
             </div>
-           
         </div>
-
     </div>
     <div class="row icons">
       <div class="col-md-4 ">
@@ -70,9 +67,9 @@ by who.  You can improve your reach by following your populairity and reacting
         </div>
     </div>
 
-  <div class="row footer">
-    <div class="col-md-12 text-center">
-      <a href="">Copyright Monitool</a>
+    <div class="row footer">
+      <div class="col-md-12 text-center">
+        <a href="">&copy; Copyright Monitool</a>
       </div>
     </div>
   </div>
