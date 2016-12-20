@@ -14,10 +14,8 @@
         <div class="panel graph fixed-height">
           <p id="graph_title" class="panel-title text-left"></p>
           <div class="buttons-filter buttons-bar"></div>
-<<<<<<< HEAD
           <div class="buttons-filter"></div>
           <div id="chartdiv"></div>
-
           </div>
         </div>
       </div>
@@ -92,9 +90,6 @@
 EOT;
 echo $output;
   }
-      
-//dd($data['feed']);
-
 ?>
 
         
@@ -179,8 +174,7 @@ echo $output;
   </div>
 
 </div>
-<<<<<<< HEAD
-<!--
+
 <script type="text/javascript">
 
   var chartData = <?php echo $data['insights']; ?>
@@ -193,22 +187,13 @@ foreach ($data['feed']['data'] as $post) {
     echo "<p class='post-message'>" . $post['message'] . "</p>";
   }
 }
-//dd($data['feed']);
-
 ?>
-@endsection
-=======
 
 <script src="./resources/assets/js/chart-dashboard.js"></script>
 <script type="text/javascript">
   
-<<<<<<< HEAD
   //var chartData ='';
 
-  <?php dd( $data['insights'] ); ?>
-
-=======
->>>>>>> dfbd1ca31d666d7f592de7001d794da2a0e13e7c
    var chartData = <?php echo $data['insights']; ?>;
    var graphTitle = document.getElementById("graph_title");
    graphTitle.innerHTML = "Facebook - Impressions";
@@ -240,4 +225,3 @@ foreach ($data['feed']['data'] as $post) {
   }
 </script>
 @endsection
->>>>>>> dfbd1ca31d666d7f592de7001d794da2a0e13e7c
