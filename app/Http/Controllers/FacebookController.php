@@ -2,39 +2,47 @@
 
 namespace App\Http\Controllers;
 
+
+
 use Illuminate\Http\Request;
 
 use App\Http\Controllers;
 
 use SammyK\FacebookQueryBuilder\FQB;
 
+
+
 class FacebookController extends Controller
+
 {
 
+
+
     public function __construct(){
+
         $this->fqb = new FQB;
+
         $this->access_token = 'EAACryEAoP3cBAHZBxVqz1a4CdDF1OzcrBLkzKK37CaNp9Fe8WDqienuG8hu6b7mCgJ0E4Xj3ZAzFVh6Qfwbni09jzZAj2L8u4S8nnOtjEtZAaPXVfy1CNnB06ASy6WlPZCV7UyJHhdqGhGLJRfKGMurY2gjvwqjMZD';
+
         $this->node = '1775886599336178';
 
     }
 
+
+
     public function dashboard(){
 
-        //js object meegeven
+        $data['data']['insights']   = $this->insights();
 
-         $data['data']['insights']    = $this->insights();
+        $data['data']['likes']      = $this->page_likes();
 
-         $data['data']['likes']       = $this->page_likes();
-
-
-
-        //feed ophalen
-
-        //$data['data']['feed']     = $this->feed();
+        $data['data']['feed']       = $this->feed();
 
         return $data;
 
     }
+
+
 
     public function feed(){
 
@@ -52,11 +60,91 @@ class FacebookController extends Controller
 
         $data       = json_decode($response, true);
 
-        // return $this->likesToJS($data['data']);
 
-        return $data['data'];
+
+
+
+        $output = array();
+
+        foreach ($data['data'] as $key => $post) {
+
+            //define
+
+            $date = date('d-m-Y G:i:s', strtotime($post['created_time']));
+
+            $picture = "";
+
+            $message = "";
+
+            $likes = "";
+
+            $shares = "";
+
+            $comments = "";
+
+
+
+            if(isset($post['picture'])){
+
+              $picture = $post['picture'];
+
+            }
+
+
+
+            if(isset($post['message'])){
+
+              $message = $post['message'];
+
+            }
+
+
+
+            if(isset($post['likes'])){
+
+              $likes = $post['likes']['summary']['total_count'];
+
+            }
+
+
+
+            if(isset($post['shares'])){
+
+              $shares = $post['shares']['count'];
+
+            }
+
+
+
+            if(isset($post['comments'])){
+
+              $comments = $post['comments']['summary']['total_count'];
+
+            }
+
+
+
+            $output['data'][$key] = array(
+
+                    'date'  => $date,
+
+                    'picture' => $picture,
+
+                    'message' => $message,
+
+                    'id' => $post['id'],
+
+                    'likes' => $likes, 'shares' => $shares, 'comments' => $comments);
+
+            }
+
+
+
+        return $output;
 
     }
+
+
 
     public function post_dates(){
 
@@ -76,9 +164,7 @@ class FacebookController extends Controller
 
         $formatedData = array();
 
-        foreach ($data['data'] as $key => $value) 
-
-        {
+        foreach ($data['data'] as $key => $value) {
 
             $newDatFormat = strtotime($value["created_time"]);
 
@@ -89,6 +175,8 @@ class FacebookController extends Controller
         return $formatedData;
 
     }
+
+
 
     public function page_likes(){
 
@@ -112,6 +200,8 @@ class FacebookController extends Controller
 
     }
 
+
+
     public function insights(){
 
         $request = $this->fqb->node("$this->node/insights/page_impressions")
@@ -130,45 +220,59 @@ class FacebookController extends Controller
 
         return $this->insightsToJS($data['data']);
 
+
+
         //return $data['data'];
 
+
+
     }
+
+
 
     public function insightsToJS($data)
 
     {
 
+        //de array die opgestuurd wordt
+
         $fbDataArray = [];
 
+        //de datums van de geplaatste posts
+
         $posts = $this->post_dates();
+
+        //voor elke dag
 
         foreach($data[0]['values'] as $value)
 
         {
 
-            $fbdate = strtotime($value["end_time"]);
+            $fbdate = strtotime($value["end_time"]);            //naar date format
 
-            $date = date('D M d Y h:i:s OT (e)', $fbdate);
+            $date = date('D M d Y h:i:s OT (e)', $fbdate);      //naar juiste configuratie voor de line chart
 
-            $postId = false;
+            $postId = false;                                    //de check
 
-            foreach ($posts as $value) {
+            foreach ($posts as $postDate) {                     //for elke post die geplaatst is
 
-                if ($date == $value["created_time"]) {
+                $theDate = substr($postDate["created_time"], 0, 15);            
 
-                    $postId = $value["id"];
+                if ( date('D M d Y', $fbdate) == $theDate ) {   //is een datum gelijk aan de post datum
+
+                    $postId = $postDate["id"];                  //check is goed
 
                 }
 
             }
 
-            if($postId){
+            if($postId != false){//is de check goed?
 
-                $fbDataArray[] = array('date' => $date, 'visits' => $value["value"], "bullet" => "round", "description" => $postId);
+                $fbDataArray[] = array('date' => $date, 'visits' => $value["value"], "bullet" => "round", "description" => $postId);//geef bullet mee
 
-            }else{
+            }else{//anders
 
-                $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);
+                $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);//alleen de datum en het aantal bezoekers
 
             }
 
@@ -178,33 +282,27 @@ class FacebookController extends Controller
 
     }
 
-    public function likesToJS($data)
 
-    {
+
+    public function likesToJS($data){
 
         $fbDataArray = [];
 
-        foreach($data[0]['values'] as $value)
-
-        {
+        foreach($data[0]['values'] as $value){
 
             $fbdate = strtotime($value["end_time"]);
 
             $date = date('D M d Y h:i:s OT (e)', $fbdate);
 
-            if(empty($value["value"]))
-
-            {
+            if(empty($value["value"])){
 
                 $value["value"]["page_timeline"] = '0';
 
             }
 
-            elseif(empty($value["value"]["page_timeline"])) 
+            elseif(empty($value["value"]["page_timeline"])) {
 
-            {
-
-                $value["value"]["page_timeline"] = 0 + $value["value"]["page_profile"];         
+                $value["value"]["page_timeline"] = 0 + $value["value"]["page_profile"];
 
             }
 
