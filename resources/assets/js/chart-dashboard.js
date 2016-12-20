@@ -12,39 +12,21 @@ function dashboardMakeChart(chartData){
         "valueAxes": [{
             "axisAlpha": 0.2,
             "dashLength": 1,
-            "position": "left"
+            "position": "left",
+            "parseDates": true
         }],
         "mouseWheelZoomEnabled": false,
         "graphs": [{
-            // "id": "g1",
-            // "type": "smoothedLine",
-            // "hideBulletsCount": 50,
-            // "title": "red line",
-            // "valueField": "visits",
-            // "useLineColorForBulletBorder": false,
-            // "bulletField": "bullet",
-            // "descriptionField": "description",
-            // "balloon":{
-            //     "drop":true,
-            //     "Text": "[[description]]"
-            // }
-
+            "id": "g1",
             "title": "Algemene chart",
-            "valueField": "visits",
-            "hideBulletsCount": 50,
-            "useLineColorForBulletBorder": false,
             "type": "smoothedLine",
-            "lineColorField": "lineColor",
-            "fillColorsField": "lineColor",
-            "fillAlphas": 0.3,
-            "balloonText": "[[value]]",
-            "lineThickness": 1,
-            "legendValueText": "[[value]]",
-            "bullet": "round",
+            "valueField": "visits",
+            "bulletField": "bullet",
             "descriptionField": "description",
-            "bulletBorderThickness": 1,
+            "balloonText": "[[visits]]",            
+            "bulletBorderThickness": 4,
             "bulletBorderAlpha": 1,
-            "balloonText": "[[description]]"
+            "fillAlphas": 0.3,
         }],
         "chartScrollbar": {
             "autoGridCount": true,
@@ -70,14 +52,6 @@ function dashboardMakeChart(chartData){
             "enabled": true
         }
     });
-}
-chart.addListener("rendered", zoomChart);
-zoomChart();
-
-// this method is called when chart is first inited as we listen for "rendered" event
-function zoomChart() {
-    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
-    chart.zoomToIndexes(chartData.length - 40, chartData.length - 1);
 }
 
 var overallDoughnutChart = document.getElementById("OverallDoughnutChart");

@@ -1,14 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
 
-<?php
-  
-  //dd($data);
-  //dd($data['insights']);
-  //dd($data['likes']);
-
-?>
-
 <div class="dashboard">
   <div class="container-fluid">
     <div class="row">
@@ -16,35 +8,6 @@
         <div class="panel graph fixed-height">
           <p id="graph_title" class="panel-title text-left"></p>
           <div class="buttons-filter buttons-bar"></div>
-          <div class="buttons-filter"></div>
-          <div id="chartdiv"></div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="row dashboard-bottom-half">
-        <div class="col-md-4">
-          <div class="panel">
-            <p class="panel-title">Overall</p>
-              <div class="OverallDoughnutChartContainer">
-                <canvas id="OverallDoughnutChart" width="100" height="100"></canvav>
-              </div>
-
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel">
-            <p class="panel-title">Facebook</p>
-
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel">
-            <p class="panel-title">Youtube</p>
-          </div>
-        </div>
-            
-          <section>
             <div class="buttons-filter mainfilter"></div>
             <div class="graphwrapper">
               <div id="chartdiv"></div>
@@ -71,11 +34,12 @@
                       <label for="radio3">Shares</label>
                     </div>
                   </div>
+                  <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
                 </div> 
             </div>
 
             <div class="col-xs-4">
-              <span class="panel-subtitle">YouTube</span>
+              <!-- <span class="panel-subtitle">YouTube</span>
               <div class="form-group">
                  <div class="funkyradio">
                     <div class="funkyradio-primary">
@@ -92,10 +56,10 @@
                     </div>
                   </div>
 
-              </div> 
+              </div>  -->
             </div>
             <div class="col-xs-4">
-              <span class="panel-subtitle">Services</span>
+              <!-- <span class="panel-subtitle">Services</span>
               <div class="funkyradio">
                     <div class="funkyradio-primary">
                       <input name="service1" id="checkbox1" type="checkbox" value="1"/>
@@ -105,25 +69,29 @@
                       <input name="service2" id="checkbox2" checked="" type="checkbox" value="1"/>
                       <label for="checkbox2">YouTube</label>
                     </div>
-                  </div>
-
-                <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
+                  </div> -->
             </div>
           </form>
         </section>
-      </div>
+      </div>   
+    <div class="row graph">
+       <div class="col-md-6">
+         <div class="panel">
+           <p class="panel-title">Overall</p>
+             <div class="OverallDoughnutChartContainer">
+               <canvas id="OverallDoughnutChart" width="100" height="100"></canvas>
+             </div>
+         </div>
+       </div>
+       <div class="col-md-6">
+         <div class="panel">
+           <p class="panel-title">Facebook</p>
+         </div>
+       </div>
+     </div>
     </div>
   </div>
-
 </div>
-
-<?php
-// foreach ($data['feed']['data'] as $post) {
-//   if (isset($post['message'])) {
-//     echo "<p class='post-message'>" . $post['message'] . "</p>";
-//   }
-// }
-?>
 
 <script src="./resources/assets/js/chart-dashboard.js"></script>
 <script type="text/javascript">
