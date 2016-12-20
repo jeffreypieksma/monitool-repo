@@ -29,8 +29,47 @@ class FacebookController extends Controller
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
 		$response 	= file_get_contents((string) $request, null, $context);
 		$data 		= json_decode($response, true);
-		//return $this->likesToJS($data['data']);
-		return $data['data'];
+
+
+		$output = array();
+		foreach ($data['data'] as $key => $post) {
+		    //define
+		    $date = date('d-m-Y G:i:s', strtotime($post['created_time']));
+		    $picture = "";
+		    $message = "";
+		    $likes = "";
+		    $shares = "";
+		    $comments = "";
+
+		    if(isset($post['picture'])){
+		      $picture = $post['picture'];
+		    }
+
+		    if(isset($post['message'])){
+		      $message = $post['message'];
+		    }
+
+		    if(isset($post['likes'])){
+		      $likes = $post['likes']['summary']['total_count'];
+		    }
+
+		    if(isset($post['shares'])){
+		      $shares = $post['shares']['count'];
+		    }
+
+		    if(isset($post['comments'])){
+		      $comments = $post['comments']['summary']['total_count'];
+		    }
+
+		    $output['data'][$key] = array(
+		    		'date'	=> $date,
+		    		'picture' => $picture,
+		    		'message' => $message,
+		    		'id' => $post['id'],
+		    		'likes' => $likes, 'shares' => $shares, 'comments' => $comments);
+ 			}
+
+		return $output;
 	}
 
     public function post_dates(){
@@ -84,13 +123,13 @@ class FacebookController extends Controller
         //voor elke dag
         foreach($data[0]['values'] as $value)
         {
-            $fbdate = strtotime($value["end_time"]);//naar date format
-            $date = date('D M d Y h:i:s OT (e)', $fbdate);//naar juiste configuratie voor de line chart
-            $postId = false; //de check
-            foreach ($posts as $postDate) {//for elke post die geplaatst is
+            $fbdate = strtotime($value["end_time"]);			//naar date format
+            $date = date('D M d Y h:i:s OT (e)', $fbdate);		//naar juiste configuratie voor de line chart
+            $postId = false; 									//de check
+            foreach ($posts as $postDate) {						//for elke post die geplaatst is
             	$theDate = substr($postDate["created_time"], 0, 15);           	
-            	if ( date('D M d Y', $fbdate) == $theDate ) { //is een datum gelijk aan de post datum
-            		$postId = $postDate["id"];//check is goed
+            	if ( date('D M d Y', $fbdate) == $theDate ) { 	//is een datum gelijk aan de post datum
+            		$postId = $postDate["id"];					//check is goed
             	}
             }
             if($postId != false){//is de check goed?

@@ -1,14 +1,6 @@
 @extends('layouts.dashboard')
 @section('content')
 
-<?php
-  
-  //dd($data);
-  //dd($data['insights']);
-  //dd($data['likes']);
-
-?>
-
 <div class="dashboard">
   <div class="container-fluid">
     <div class="row">
@@ -17,10 +9,29 @@
           <p id="graph_title" class="panel-title text-left"></p>
           <div class="buttons-filter buttons-bar"></div>
             <div class="buttons-filter mainfilter"></div>
-            <div class="graphwrapper">
+            <!-- <div class="graphwrapper">
               <div id="chartdiv"></div>
-           </div>
-
+            </div> -->
+            <div class="cardwrapper row">
+              @foreach($data['feed']['data'] as $post)
+              <div class="col-md-2">
+                <div class="cardpanel .btn-default">
+                  <p class="card-title">{{$post['date']}} {{$post['id']}}</p>
+                  <div class="cardpicture">
+                      <img src="{{$post['picture']}}">
+                  </div>
+                  <div class="cardtext">
+                      <span class="more">{{$post['message']}}</span>
+                  </div>
+                  <div class = "cardstats"
+                      <p> <img src="public/img/ic_thumb_up_black_18dp_1x.png"> {{$post['likes']}}
+                      <img src="public/img/ic_share_black_18dp_2x.png"> {{$post['shares']}} 
+                      <img src="public/img/ic_message_18dp.png"> {{$post['comments']}} </p>
+                  </div>
+                </div>
+              </div>
+              @endforeach
+            </div>
         <section>
         <!-- Graph and filter -->
           <form id="filterform" class="filterwrapper">
@@ -82,43 +93,29 @@
           </form>
         </section>
       </div>
-    </div>
-
-      
-    <div class="row dashboard-bottom-half">
-        <div class="col-md-4">
+          
+    <div class="row graph">
+        <div class="col-md-6">
           <div class="panel">
             <p class="panel-title">Overall</p>
               <div class="OverallDoughnutChartContainer">
-                <canvas id="OverallDoughnutChart" width="100" height="100"></canvav>
+                <canvas id="OverallDoughnutChart" width="100" height="100"></canvas>
               </div>
 
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="panel">
             <p class="panel-title">Facebook</p>
 
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="panel">
-            <p class="panel-title">Youtube</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-
 </div>
 
-<?php
-// foreach ($data['feed']['data'] as $post) {
-//   if (isset($post['message'])) {
-//     echo "<p class='post-message'>" . $post['message'] . "</p>";
-//   }
-// }
-?>
+</div>
 
 <script src="./resources/assets/js/chart-dashboard.js"></script>
 <script type="text/javascript">

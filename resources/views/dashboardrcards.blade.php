@@ -3,6 +3,7 @@
 <!-- <script>
   var myChart = new Chart({...})
 </script> -->
+<?php 
   $fbDataArray = [];
 
   foreach($data[0]['values'] as $value){
