@@ -80,6 +80,11 @@ body{
   margin-left:15px;
 }
 
+.nav.navbar-nav.navbar-right{
+  margin-right:5px;
+}
+
+
 .navbar-collapse.collapse .navbar-right li:nth-child(2) a:hover,
 .navbar-collapse.collapse .navbar-right li:nth-child(1) a:hover{
   font-weight: bold;
@@ -155,10 +160,11 @@ a.btn.btn-primary.white{
   background-color: #f5f8fa;
   cursor: pointer;
 }
-
+/*
 .icon-options{
   margin-right: 50px;
 }
+*/
 
 /*** Seperators ****/
 

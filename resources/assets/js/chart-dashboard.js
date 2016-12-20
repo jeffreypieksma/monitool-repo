@@ -1,4 +1,30 @@
  //var chartData = generateChartData();
+console.log(chartData);
+var chart = AmCharts.makeChart("chartdiv", {
+    "type": "serial",
+    "theme": "light",
+    "marginRight": 0,
+    "autoMarginOffset": 20,
+    "marginTop": 7,
+    "dataProvider": chartData,
+    "valueAxes": [{
+        "axisAlpha": 0.2,
+        "dashLength": 1,
+        "position": "left"
+    }],
+    "mouseWheelZoomEnabled": false,
+    "graphs": [{
+        "id": "g1",
+        "balloonText": "[[value]]",
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": "#FFFFFF",
+        "hideBulletsCount": 50,
+        "title": "red line",
+        "valueField": "visits",
+        "useLineColorForBulletBorder": true,
+        "balloon":{
+            "drop":false
 function dashboardMakeChart(chartData){
     var chart = AmCharts.makeChart("chartdiv", {
         "type": "serial",
