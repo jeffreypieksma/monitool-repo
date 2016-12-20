@@ -9,26 +9,30 @@
                 <div class="col-md-12">
                     <h2 class="customh2">Everything you need</h2>
                     <span class="large-text">In one place</span>
-                    <a href="/monitool-repo/dashboard" class="button">Start using Monitool!</a>
+                    <a href="/monitool-repo/dashboard" class="button orange">
+                        Start following your story!
+                        <!--Start using Monitool!-->
+
+                    </a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row icons">
       <div class="col-md-4 ">
-        <div class="title">Create a project</div>
-        <div class="description"> It’s easy to make an account and to add a project to it</div>
+        <div class="title">Create your story</div>
+        <div class="description">It’s easy to make an account and to add a project to it</div>
         <img src="./public/icons/1.png" class="icon">
       </div>
         <div class="col-md-4 ">
-            <div class="title">Add your social media</div>
-            <div class="description">In a few simple steps you can add your social media</div>
+            <div class="title">Add your platforms</div>
+            <div class="description">In a few simple steps you can add your social media platforms</div>
             <img src="./public/icons/2.png" class="icon">
           </div>
         <div class="col-md-4 ">
             <div class="title">See your progress</div>
-            <div class="description">
-            Now you can add filters and see how your project is doing
+            <div class="description">Get your insight by overview and get detailed information about your story
+            <!--Now you can add filters and see how your project is doing-->
             </div>
             <img src="./public/icons/3.png" class="icon">
         </div>

@@ -90,15 +90,9 @@
 
 <script src="./resources/assets/js/chart-dashboard.js"></script>
 <script type="text/javascript">
-  
-<<<<<<< HEAD
-  //var chartData ='';
 
-  <?php dd( $data['insights'] ); ?>
-
-=======
->>>>>>> dfbd1ca31d666d7f592de7001d794da2a0e13e7c
    var chartData = <?php echo $data['insights']; ?>;
+   
    var graphTitle = document.getElementById("graph_title");
    graphTitle.innerHTML = "Facebook - Impressions";
    dashboardMakeChart(chartData);

@@ -106,9 +106,9 @@ class FacebookController extends Controller
 
         $data         = json_decode($response, true);
 
-        // return $this->likesToJS($data['data']);
+        return $this->likesToJS($data['data']);
 
-        return $data['data'];
+        //return $data['data'];
 
     }
 
@@ -128,9 +128,9 @@ class FacebookController extends Controller
 
         $data       = json_decode($response, true);
 
-        //return $this->insightsToJS($data['data']);
+        return $this->insightsToJS($data['data']);
 
-        return $data['data'];
+        //return $data['data'];
 
     }
 
