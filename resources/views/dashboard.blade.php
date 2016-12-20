@@ -90,6 +90,31 @@
        </div>
      </div>
     </div>
+
+      
+    <div class="row dashboard-bottom-half">
+        <div class="col-md-4">
+          <div class="panel">
+            <p class="panel-title">Overall</p>
+              <div class="OverallDoughnutChartContainer">
+                <canvas id="OverallDoughnutChart" width="100" height="100"></canvav>
+              </div>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel">
+            <p class="panel-title">Facebook</p>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel">
+            <p class="panel-title">Youtube</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
