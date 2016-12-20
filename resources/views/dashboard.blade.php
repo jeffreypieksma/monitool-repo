@@ -35,11 +35,7 @@
             <p class="panel-title">Youtube</p>
           </div>
         </div>
-            <div class="buttons-filter mainfilter"></div>
-            <div class="graphwrapper">
-              <div id="chartdiv"></div>
-            </div>
-
+            
           <section>
         <!-- Graph and filter -->
           <form id="filterform" class="filterwrapper">
