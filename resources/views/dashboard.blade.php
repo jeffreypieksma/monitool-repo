@@ -42,11 +42,12 @@
                       <label for="radio3">Shares</label>
                     </div>
                   </div>
+                  <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
                 </div> 
             </div>
 
             <div class="col-xs-4">
-              <span class="panel-subtitle">YouTube</span>
+              <!-- <span class="panel-subtitle">YouTube</span>
               <div class="form-group">
                  <div class="funkyradio">
                     <div class="funkyradio-primary">
@@ -63,10 +64,10 @@
                     </div>
                   </div>
 
-              </div> 
+              </div>  -->
             </div>
             <div class="col-xs-4">
-              <span class="panel-subtitle">Services</span>
+              <!-- <span class="panel-subtitle">Services</span>
               <div class="funkyradio">
                     <div class="funkyradio-primary">
                       <input name="service1" id="checkbox1" type="checkbox" value="1"/>
@@ -76,9 +77,7 @@
                       <input name="service2" id="checkbox2" checked="" type="checkbox" value="1"/>
                       <label for="checkbox2">YouTube</label>
                     </div>
-                  </div>
-
-                <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
+                  </div> -->
             </div>
           </form>
         </section>

@@ -120,6 +120,10 @@ hr.horizontal-break, hr.break {
     border: none;
 }
 
+.graph{
+	padding: 5px;
+}
+
 /*** Filter Dashboard ****/
 
 .panel.filterwrapper{
