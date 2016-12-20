@@ -324,6 +324,15 @@ ul.nav.navbar-nav a{color:#fff !important;}
 
 /*** Instellingen view ***/
 
+.alert-panel{
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.flash-message{
+	margin-bottom: -15px;
+}
+
 .panel{
 	background-color: white;
 	margin: 15px;
@@ -407,40 +416,30 @@ ul.nav.navbar-nav a{color:#fff !important;}
 	height: 36px;
 	color: white;
 	padding: 8px;
+    padding-top: 6px;
 	overflow: hidden;
 	margin-bottom: 5px;
+	border: 1px solid white;
+	border-radius: 2px;
 }
 
-.fb img{
+.socialmedia-box:hover{
+	opacity: .8;
+}
+
+.fb img, .Facebook img{
 	height: 18px;
 }
 
-.yt{
+.yt, .Youtube{
 	background-color: #C84635;
 }
 
 /*** Create-project view ***/
 
-.create-project .socialmedia .facebook{
-	background-color:#338CC8;
-	border: 1px solid #ccd0d2;
-	border-radius: 4px;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-	width: 100%;
-	height: 36px;
-	padding: 6px 12px;
+.form-row{
+	padding: 0 100px 0 110px;
 }
-.create-project .socialmedia .youtube{
-	margin-top:15px;
-	background-color:#C84635;
-	border: 1px solid #ccd0d2;
-	border-radius: 4px;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-	width: 100%;
-	height: 36px;
-	padding: 6px 12px;
-}
-
 /*** Help view ***/
 .dashboard-help{
 	height: 880px;

@@ -4,7 +4,7 @@
 <div class="dashboard-help">
 	<div class="container-fluid">
 		<h2>Help</h2>
-		<a href="{{ url('/dashboard') }}" class="back-button"></a>
+		<a href="{{ URL::previous() }}" class="back-button"></a>
 		<div class="row">
 			<div class="col-md-2 sidebar">
 				<div class="panel">

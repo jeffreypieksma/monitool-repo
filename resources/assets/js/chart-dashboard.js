@@ -1,6 +1,3 @@
- //var chartData = generateChartData();
-
-// console.log(chartData);
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "light",
@@ -18,15 +15,35 @@ var chart = AmCharts.makeChart("chartdiv", {
     }],
     "mouseWheelZoomEnabled": false,
     "graphs": [{
-        "id": "g1",
-        "type": "smoothedLine",
-        "hideBulletsCount": 50,
-        "title": "red line",
+        // "id": "g1",
+        // "type": "smoothedLine",
+        // "hideBulletsCount": 50,
+        // "title": "red line",
+        // "valueField": "visits",
+        // "useLineColorForBulletBorder": false,
+        // "bulletField": "bullet",
+        // "descriptionField": "description",
+        // "balloon":{
+        //     "drop":true,
+        //     "Text": "[[description]]"
+        // }
+
+        "title": "Algemene chart",
         "valueField": "visits",
+        "hideBulletsCount": 50,
         "useLineColorForBulletBorder": false,
-        "balloon":{
-            "drop":true
-        }
+        "type": "smoothedLine",
+        "lineColorField": "lineColor",
+        "fillColorsField": "lineColor",
+        "fillAlphas": 0.3,
+        "balloonText": "[[value]]",
+        "lineThickness": 1,
+        "legendValueText": "[[value]]",
+        "bullet": "round",
+        "descriptionField": "description",
+        "bulletBorderThickness": 1,
+        "bulletBorderAlpha": 1,
+        "balloonText": "[[description]]"
     }],
     "chartScrollbar": {
         "autoGridCount": true,
@@ -62,7 +79,6 @@ function zoomChart() {
     chart.zoomToIndexes(chartData.length - 40, chartData.length - 1);
 }
 
-
 var overallDoughnutChart = document.getElementById("OverallDoughnutChart");
 
 console.log(overallDoughnutChart);
@@ -86,11 +102,16 @@ var newDoughnutChart = new Chart(overallDoughnutChart, {
         }]},
     animation:{
         animateScale:true
-    }
+    },
     options: {
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
-            width: 500, // the same as right - left
-            height: 100 // the same as bottom - top
+            width: 150, // the same as right - left
+            height: 10, // the same as bottom - top
+        },
+        legend: {
+            position: "right"
         }
     }
    
