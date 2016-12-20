@@ -18,12 +18,8 @@ class FacebookController extends Controller
 	public function dashboard(){
 		//js object meegeven
 		$data['data']['insights'] 	= $this->insights();
-
 		$data['data']['likes']		= $this->page_likes();
-
-		//dd( $this->post_dates() );
-		//feed ophalen
-		//$data['data']['feed']		= $this->feed();
+		$data['data']['feed']		= $this->feed();
 
 		return $data;
 	}

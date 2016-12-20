@@ -7,7 +7,7 @@ $( document ).ready(function() {
 	var clicked = false;
 
 	filterbutton.click(function() {
-console.log('ffs');
+
   		if(!clicked){
         panelVisibility(0);
   			clicked = true;  
@@ -17,6 +17,17 @@ console.log('ffs');
   		}
 	 
 	});
+
+  formbutton.click(function() {
+    getFormValue();
+    if(!clicked){
+        panelVisibility(0);
+        clicked = true;  
+      }else{
+        panelVisibility(1);
+        clicked = false;
+      }
+  });
 
   function panelVisibility(value){
     //0 = OFF 
@@ -30,12 +41,7 @@ console.log('ffs');
     }
 }
 
-  formbutton.click(function() {
-    getFormValue();
-  });
-
 });
-
 
 
 function getFormValue(){
@@ -59,30 +65,34 @@ function getFormValue(){
 
 function valideFormValue(form){
 
-  var facebook = form[0];
-  var youtube = form[1];
-  var service1 = form[2];
-  var service2 = form[3];
+  var facebook = parseInt(form[0]);
+  var youtube = parseInt(form[1]);
+  var service1 = parseInt(form[2]);
+  var service2 = parseInt(form[3]);
 
-  if(facebook == null || facebook == '') facebook = "1";
-  if(facebook <  0 || facebook >  3) facebook = "1";
+  if(facebook == null || facebook == '') facebook = 1;
+  if(facebook <  0 || facebook >  3) facebook = 1;
 
-  if(youtube == null || youtube == '') youtube = "1";
-  if(youtube < 0 || youtube > 3) youtube = "1";
+  if(youtube == null || youtube == '') youtube = 1;
+  if(youtube < 0 || youtube > 3) youtube = 1;
 
-  if(service1 == null || service1 == '') service1 = "0";
+  if(service1 == null || service1 == '') service1 = 0;
     
-  if(service2 == null || service2 == '') service2 = "0";
+  if(service2 == null || service2 == '') service2 = 0;
 
   var filtervalue = [];
   filtervalue.push(facebook,youtube,service1,service2);
 
-
-  setGraphData(filtervalue)
-
+  setGraphData(filtervalue);
 }
 
 function setGraphData(filtervalue){
-  alert(filtervalue);
+  getGraphData(filtervalue);
 }
+
+
+function getGraphData(filtervalue){
+  displayFilter(filtervalue);
+}
+
 

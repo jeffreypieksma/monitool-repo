@@ -6,7 +6,6 @@
 body{
 	background-color: #ede9e6;
 }
-
 /* latin-ext */
 @font-face {
   font-family: 'Raleway';
@@ -38,6 +37,10 @@ body{
   font-weight: 600;
   src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(https://fonts.gstatic.com/s/raleway/v11/xkvoNo9fC8O2RDydKj12b_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+body{
+	background-color: #ede9e6;
 }
 
 @media screen and (max-width: 767px) {
@@ -117,7 +120,6 @@ hr.horizontal-break, hr.break {
     border: none;
 }
 
-
 /*** Filter Dashboard ****/
 
 .panel.filterwrapper{
@@ -155,15 +157,15 @@ hr.horizontal-break, hr.break {
 
 .funkyradio input[type="radio"]:empty ~ label,
 .funkyradio input[type="checkbox"]:empty ~ label {
-  position: relative;
-  line-height: 2.5em;
-  text-indent: 3.25em;
-  margin-top: 2em;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+	position: relative;
+	line-height: 2.5em;
+	text-indent: 3.25em;
+	margin-top: 2em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .funkyradio input[type="radio"]:empty ~ label:before,
@@ -296,7 +298,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
 	background-size: cover;
 	height: calc(100% - 50px);
 }
-
 .panel.custompanel{
 	background-color:transparent;
 }
@@ -335,7 +336,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
 
 .panel{
 	background-color: white;
-	margin: 15px;
 	padding: 15px;
 	border-bottom: 1px solid #045071;
 }
@@ -416,6 +416,85 @@ ul.nav.navbar-nav a{color:#fff !important;}
 	height: 36px;
 	color: white;
 	padding: 8px;
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+
+.fb img{
+	height: 18px;
+}
+
+.yt{
+	background-color: #C84635;
+}
+
+/*** Card panels ***/
+
+.card-title{
+	color: #045071;
+	width: 100%;
+	border-bottom: 2px solid #EDE9E6;
+	margin-bottom: 5px;
+	padding: 5px;
+	clear: both;
+	font-weight: bold;
+}
+.cardpicture{
+	text-align: center;
+}
+.myClickState {
+  border-color: lime;
+}
+.cardpanel{
+	background-color: white;
+	align-content: center;
+	font-size: 80%;
+	margin: 15px;
+	padding: 15px;
+	border-bottom: 1px solid #045071;
+	text-align: left;
+    width: 210px;
+    height: 340px;
+}
+
+.cardtext{
+	position: absolute;
+    top: 170px;
+	margin-left: 5px;
+    width: 190px;
+    height: 150px;
+    overflow-y: scroll;
+	overflow-x: hidden;
+}
+.cardstats-lsc{
+	position: absolute;
+    top: 320px;
+    right: 0;
+    left: 75px;
+    width: 200px;
+    height: 100px;
+}
+
+
+
+/*** Create-project view ***/
+
+.create-project .socialmedia .facebook{
+	background-color:#338CC8;
+	border: 1px solid #ccd0d2;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	width: 100%;
+	height: 36px;
+	padding: 6px 12px;
+}
+.create-project .socialmedia .youtube{
+	margin-top:15px;
+	background-color:#C84635;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	width: 100%;
+	height: 36px;
+	padding: 6px 12px;
     padding-top: 6px;
 	overflow: hidden;
 	margin-bottom: 5px;
@@ -483,7 +562,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
-
 /*** Slider ***/
 
 .slider .content{position: absolute;top:80px;width:100%;}
@@ -557,7 +635,13 @@ ul.nav.navbar-nav a{color:#fff !important;}
 
 .dashboard .col-md-4{height: 350px;}
 
+.dashboard .col-md-2{height: 200px;}
+
+/*
+>>>>>>> a474a68ee7821fd4f4f51a193bd5eb73f733c057
 .dashboard .graph{padding: 5px;}
+*/
+
 
 .dashboard .panel-title{
 	width: 80%;
@@ -566,9 +650,11 @@ ul.nav.navbar-nav a{color:#fff !important;}
 }
 
 .dashboard .panel{
-	margin: 10px;
+	/*margin: 10px;*/
 	height: 100%;
 	overflow: hidden;
+	margin-top:20px;
+	padding:15px !important;
 }
 
 .dashboard .buttons-filter{
@@ -601,7 +687,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
 .dashboard .buttons-bar:hover{
 	background-image: url(../icons/icon-bar-hover.png);
 }
-
 .dashboard .fixed-height{
 	height: 503px;
 }
@@ -617,7 +702,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
 	background-color: white;
 	background-image: url(../icons/icon-back-hover.png);
 }
-
 /** Grafiek **/
 
 #chartdiv {
@@ -636,7 +720,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
 }
 
 /*Export knop*/
-
 .export-main>a{
 	background-color: orange !important;
 	position: relative !important;
@@ -669,7 +752,6 @@ ul.nav.navbar-nav a{color:#fff !important;}
 
 .export-main>ul>li>a::after{display: none;}
 
-.export-main>ul>li>a::after{display: none;}
 
 /*Drawing knop*/
 
