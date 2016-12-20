@@ -80,6 +80,8 @@
                   </div>
 
                 <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
+
+
             </div>
           </form>
         </section>
@@ -93,6 +95,8 @@
 <script type="text/javascript">
   
   //var chartData ='';
+
+  <?php dd( $data['insights'] ); ?>
 
    var chartData = <?php echo $data['insights']; ?>;
    dashboardMakeChart(chartData);
