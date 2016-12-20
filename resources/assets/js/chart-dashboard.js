@@ -46,6 +46,17 @@ function dashboardMakeChart(chartData){
            "bulletBorderAlpha": 1,
            "balloonText": "[[description]]"
        }],
+            "id": "g1",
+            "title": "Algemene chart",
+            "type": "smoothedLine",
+            "valueField": "visits",
+            "bulletField": "bullet",
+            "descriptionField": "description",
+            "balloonText": "[[visits]]",            
+            "bulletBorderThickness": 4,
+            "bulletBorderAlpha": 1,
+            "fillAlphas": 0.3,
+        }],
        "chartScrollbar": {
            "autoGridCount": true,
            "graph": "g1",
@@ -79,6 +90,11 @@ function dashboardMakeChart(chartData){
 //    // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
 //    chart.zoomToIndexes(chartData.length - 40, chartData.length - 1);
 // }
+// this method is called when chart is first inited as we listen for "rendered" event
+function zoomChart() {
+   // different zoom methods can be used - zoomToIndexes, zoomToDates, zoomToCategoryValues
+   chart.zoomToIndexes(chartData.length - 40, chartData.length - 1);
+}
 
 var overallDoughnutChart = document.getElementById("OverallDoughnutChart");
 

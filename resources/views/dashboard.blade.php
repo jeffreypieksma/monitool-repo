@@ -92,29 +92,25 @@
             </div>
           </form>
         </section>
-      </div>
-          
+      </div>   
     <div class="row graph">
-        <div class="col-md-6">
-          <div class="panel">
-            <p class="panel-title">Overall</p>
-              <div class="OverallDoughnutChartContainer">
-                <canvas id="OverallDoughnutChart" width="100" height="100"></canvas>
-              </div>
-
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="panel">
-            <p class="panel-title">Facebook</p>
-
-          </div>
-        </div>
-      </div>
+       <div class="col-md-6">
+         <div class="panel">
+           <p class="panel-title">Overall</p>
+             <div class="OverallDoughnutChartContainer">
+               <canvas id="OverallDoughnutChart" width="100" height="100"></canvas>
+             </div>
+         </div>
+       </div>
+       <div class="col-md-6">
+         <div class="panel">
+           <p class="panel-title">Facebook</p>
+         </div>
+       </div>
+     </div>
+    </div>
     </div>
   </div>
-</div>
-
 </div>
 
 <script src="./resources/assets/js/chart-dashboard.js"></script>
