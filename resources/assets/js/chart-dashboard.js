@@ -13,7 +13,7 @@ var chart = AmCharts.makeChart("chartdiv", {
         "dashLength": 1,
         "position": "left"
     }],
-    "mouseWheelZoomEnabled": true,
+    "mouseWheelZoomEnabled": false,
     "graphs": [{
         "id": "g1",
         "balloonText": "[[value]]",

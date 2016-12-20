@@ -14,19 +14,31 @@ class FacebookController extends Controller
 		$this->node = '1775886599336178';
 	}
 
-	public function index($param = false){
-		if(method_exists($this, $param)){
-			$data = $this->$param();
-			return view('facebook/' . $param, $data);
-		}else{
-			$data = $this->feed();
-			return view('facebook/feed', $data);
+	public function dashboard(){
+		$data = array();
+
+		//insights ophalen
+		$data['data']['insights']	= $this->insights();
+
+		//fb insights omzetten naar js object
+		$fbDataArray = [];
+		foreach($data['data']['insights']['data'][0]['values'] as $value){
+			 $fbdate = strtotime($value["end_time"]);
+			 $date = date('D M d Y h:i:s OT (e)', $fbdate); //juiste date format 
+			 $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);
 		}
+
+		//js object meegeven
+		$data['data']['insights'] 	= json_encode($fbDataArray);
+		//feed ophalen
+		$data['data']['feed']		= $this->feed();
+
+		return $data;
 	}
 
 	public function feed(){
 	    $request = $this->fqb->node("$this->node/feed")
-	    			->fields("name,message,shares,comments.summary(true),likes.summary(true)")
+	    			->fields("name,message,shares,comments.summary(true),likes.summary(true),created_time,picture,story,full_picture")
 	               	->accessToken($this->access_token)
 	               	->graphVersion('v2.8');
 		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
