@@ -1,70 +1,72 @@
  //var chartData = generateChartData();
-var chart = AmCharts.makeChart("chartdiv", {
-    "type": "serial",
-    "theme": "light",
-    "categoryField": "category",
-    "color": "#045071",
-    "fontFamily": "RalewayRegular",
-    "fontSize": 12,
-    "marginRight": 0,
-    "autoMarginOffset": 15,
-    "marginTop": 0,
-    "dataProvider": chartData,
-    "valueAxes": [{
-        "axisAlpha": 0.2,
-        "dashLength": 1,
-        "position": "left"
-    }],
-    "mouseWheelZoomEnabled": false,
-    "graphs": [
-    {
-        "id": "insights",
-        "type": "smoothedLine",
-        "hideBulletsCount": 50,
-        "title": "red line",
-        "valueField": "visits",
-        "useLineColorForBulletBorder": true,
-        "balloon":{
-            "drop":true
+function dashboardMakeChart(chartData){
+    var chart = AmCharts.makeChart("chartdiv", {
+        "type": "serial",
+        "theme": "light",
+        "categoryField": "category",
+        "color": "#045071",
+        "fontFamily": "RalewayRegular",
+        "fontSize": 12,
+        "marginRight": 0,
+        "autoMarginOffset": 15,
+        "marginTop": 0,
+        "dataProvider": chartData,
+        "valueAxes": [{
+            "axisAlpha": 0.2,
+            "dashLength": 1,
+            "position": "left"
+        }],
+        "mouseWheelZoomEnabled": false,
+        "graphs": [
+        {
+            "id": "insights",
+            "type": "smoothedLine",
+            "hideBulletsCount": 50,
+            "title": "red line",
+            "valueField": "visits",
+            "useLineColorForBulletBorder": true,
+            "balloon":{
+                "drop":true
+            }
+        },
+        {
+            "id": "likes",
+            "type": "smoothedLine",
+            "hideBulletsCount": 50,
+            "title": "red line",
+            "valueField": "likes",
+            "useLineColorForBulletBorder": true,
+            "connect": false,
+            "balloon":{
+                "drop":true
+            }
         }
-    },
-    {
-        "id": "likes",
-        "type": "smoothedLine",
-        "hideBulletsCount": 50,
-        "title": "red line",
-        "valueField": "likes",
-        "useLineColorForBulletBorder": true,
-        "connect": false,
-        "balloon":{
-            "drop":true
+        ],
+        "chartScrollbar": {
+            "autoGridCount": true,
+            "graph": "g1",
+            "backgroundColor": "#62ABCB",
+            "graphFillColor": "#1D7FAA",
+            "selectedBackgroundColor": "#62ABCB",
+            "selectedGraphFillColor": "#045071",
+            "scrollbarHeight": 40
+        },
+        "chartCursor": {
+           "limitToGraph":"g1",
+           "cursorAlpha": .1
+        },
+        "categoryField": "date",
+        "categoryAxis": {
+            "parseDates": true,
+            "axisColor": "#045071",
+            "dashLength": 1,
+            "minorGridEnabled": true
+        },
+        "export": {
+            "enabled": true
         }
-    }
-    ],
-    "chartScrollbar": {
-        "autoGridCount": true,
-        "graph": "g1",
-        "backgroundColor": "#62ABCB",
-        "graphFillColor": "#1D7FAA",
-        "selectedBackgroundColor": "#62ABCB",
-        "selectedGraphFillColor": "#045071",
-        "scrollbarHeight": 40
-    },
-    "chartCursor": {
-       "limitToGraph":"g1",
-       "cursorAlpha": .1
-    },
-    "categoryField": "date",
-    "categoryAxis": {
-        "parseDates": true,
-        "axisColor": "#045071",
-        "dashLength": 1,
-        "minorGridEnabled": true
-    },
-    "export": {
-        "enabled": true
-    }
-});
+    });
+}
 
 chart.addListener("rendered", zoomChart);
 zoomChart();

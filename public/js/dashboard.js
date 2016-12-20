@@ -20,6 +20,13 @@ $( document ).ready(function() {
 
   formbutton.click(function() {
     getFormValue();
+    if(!clicked){
+        panelVisibility(0);
+        clicked = true;  
+      }else{
+        panelVisibility(1);
+        clicked = false;
+      }
   });
 
   function panelVisibility(value){
