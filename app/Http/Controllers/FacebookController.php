@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -8,6 +7,7 @@ use SammyK\FacebookQueryBuilder\FQB;
 
 class FacebookController extends Controller
 {
+
 	public function __construct(){
 		$this->fqb = new FQB;
 		$this->access_token = 'EAACryEAoP3cBAHZBxVqz1a4CdDF1OzcrBLkzKK37CaNp9Fe8WDqienuG8hu6b7mCgJ0E4Xj3ZAzFVh6Qfwbni09jzZAj2L8u4S8nnOtjEtZAaPXVfy1CNnB06ASy6WlPZCV7UyJHhdqGhGLJRfKGMurY2gjvwqjMZD';
@@ -49,7 +49,7 @@ class FacebookController extends Controller
         return $formatedData;
     }
 
-    public function page_likes(){
+	public function page_likes(){
         $request = $this->fqb->node("$this->node/insights/page_fans_by_like_source")
                        ->accessToken($this->access_token)
                        ->graphVersion('v2.8')
@@ -75,31 +75,34 @@ class FacebookController extends Controller
 
     }
 
-    public function insightsToJS($data){
+	public function insightsToJS($data)
+	{
+		//de array die opgestuurd wordt
         $fbDataArray = [];
+        //de datums van de geplaatste posts
         $posts = $this->post_dates();
-        foreach($data[0]['values'] as $value){
-            $fbdate = strtotime($value["end_time"]);
-            $date = date('D M d Y h:i:s OT (e)', $fbdate);
-            $postId = false;
-            foreach ($posts as $value) {
-                if ($date == $value["created_time"]) {
-                    $postId = $value["id"];
-                }
+        //voor elke dag
+        foreach($data[0]['values'] as $value)
+        {
+            $fbdate = strtotime($value["end_time"]);//naar date format
+            $date = date('D M d Y h:i:s OT (e)', $fbdate);//naar juiste configuratie voor de line chart
+            $postId = false; //de check
+            foreach ($posts as $postDate) {//for elke post die geplaatst is
+            	$theDate = substr($postDate["created_time"], 0, 15);           	
+            	if ( date('D M d Y', $fbdate) == $theDate ) { //is een datum gelijk aan de post datum
+            		$postId = $postDate["id"];//check is goed
+            	}
             }
-            if($postId){
-                $fbDataArray[] = array('date' => $date, 'visits' => $value["value"], "bullet" => "round", "description" => $postId);
-            }
-            else{
-            	dd($value);
-                $fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);
+            if($postId != false){//is de check goed?
+            	$fbDataArray[] = array('date' => $date, 'visits' => $value["value"], "bullet" => "round", "description" => $postId);//geef bullet mee
+            }else{//anders
+            	$fbDataArray[] = array('date' => $date, 'visits' => $value["value"]);//alleen de datum en het aantal bezoekers
             }
         }
         return json_encode($fbDataArray);
     }
 
     public function likesToJS($data){
-
         $fbDataArray = [];
         foreach($data[0]['values'] as $value){
             $fbdate = strtotime($value["end_time"]);
