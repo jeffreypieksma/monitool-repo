@@ -83,6 +83,9 @@ body{
 	height: 900px;
 	overflow-y: scroll;
 }*/
+.subpanel{
+	padding: 5px;
+}
 
 .margin-fix{
 	margin-left: -15px;
@@ -372,7 +375,6 @@ ul.nav.navbar-nav a{color:#fff;}
 	border-bottom: 2px solid #EDE9E6;
 	margin-bottom: 5px;
 	padding: 5px;
-	clear: both;
 	text-align: center;
 	font-weight: bold;
 }
@@ -729,6 +731,12 @@ ul.nav.navbar-nav a{color:#fff;}
 	padding:15px !important;
 }
 
+.project-title{
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+}
+
 .dashboard .buttons-filter{
 	height: 50px;
 	width: 50px;
@@ -880,6 +888,9 @@ ul.nav.navbar-nav a{color:#fff;}
 	clear: both;
 	text-align: center;
 	font-weight: bold;
+	border-bottom: 2px solid #EDE9E6;
+	margin-bottom: 5px;
+	font-size: 14px;
 }
 
 .OverallChartContainerTop{

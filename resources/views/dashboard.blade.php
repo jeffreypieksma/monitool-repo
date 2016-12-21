@@ -6,6 +6,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="panel graph fixed-height">
+          <span class="project-title">{{ $data['project']->name }}</span>
           <p id="graph_title" class="panel-title text-left"></p>
           <div id="cardsbutton" class="buttons-filter buttons-bar"></div>
             <div class="buttons-filter mainfilter"></div>
@@ -58,10 +59,10 @@
                       <input name="facebook" id="radio2" checked="" type="radio" value="2"/>
                       <label for="radio2">Likes</label>
                     </div>
-                    <div class="funkyradio-primary">
+                    <!-- <div class="funkyradio-primary">
                       <input name="facebook" id="radio3" checked="" type="radio" value="3" />
                       <label for="radio3">Shares</label>
-                    </div>
+                    </div> -->
                   </div>
                   <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
                 </div> 
@@ -108,21 +109,21 @@
             <div class="panel">
                 <p class="panel-title">Overall</p>
                 <div class="OverallChartContainerTop">
-                    <div class="OverallChartContainerLeft">
-                        <p class="subpanel-title">Location reached persons</p>
+                    <div class="OverallChartContainerLeft subpanel">
+                        <p class="subpanel-title">Reached people - Location</p>
                         <div>
                             <canvas id="OverallDoughnutChartLocation" width="100" height="100"></canvas>
                         </div>
                     </div>
-                    <div class="OverallChartContainerRight">
-                        <p class="subpanel-title">Age reached persons</p>
+                    <div class="OverallChartContainerRight subpanel">
+                        <p class="subpanel-title">Reached people - Age</p>
                         <div>
                             <canvas id="OverallDoughnutChartAge" width="100" height="100"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="OverallChartContainerBottom">
-                    <p class="subpanel-title">Growth reached persons</p>
+                    <p class="subpanel-title">Reached people - Growth</p>
                     <div>
                         <canvas id="OverallLineChart" width="100" height="50"></canvas>
                     </div>
@@ -133,21 +134,21 @@
             <div class="panel">
                 <p class="panel-title">Facebook</p>
                 <div class="OverallChartContainerTop">
-                    <div class="OverallChartContainerLeft">
-                        <p class="subpanel-title">Location reached persons</p>
+                    <div class="OverallChartContainerLeft subpanel">
+                        <p class="subpanel-title">Reached people - Location</p>
                         <div>
                             <canvas id="FacebookDoughnutChartLocation" width="100" height="100"></canvas>
                         </div>
                     </div>
-                    <div class="OverallChartContainerRight">
-                        <p class="subpanel-title">Age reached persons</p>
+                    <div class="OverallChartContainerRight subpanel">
+                        <p class="subpanel-title">Reached people - Age</p>
                         <div>
                             <canvas id="FacebookDoughnutChartAge" width="100" height="100"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="OverallChartContainerBottom">
-                    <p class="subpanel-title">Growth reached persons</p>
+                    <p class="subpanel-title">Reached people - Growth</p>
                     <div>
                         <canvas id="FacebookLineChart" width="100" height="50"></canvas>
                     </div>

@@ -150,5 +150,3 @@ function setGraphData(filtervalue){
 function getGraphData(filtervalue){
   displayFilter(filtervalue);
 }
-
-
