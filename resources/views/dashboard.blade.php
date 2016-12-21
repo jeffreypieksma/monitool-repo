@@ -1,9 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<<<<<<< HEAD
 
 
 
+=======
+<script src="./resources/assets/js/chart-dashboard.js"></script>
+>>>>>>> be57a0c349897eb125101ce19254f7fb5e724550
 <div class="dashboard">
 
   <div class="container-fluid">
@@ -13,6 +17,7 @@
       <div class="col-md-12">
 
         <div class="panel graph fixed-height">
+<<<<<<< HEAD
 
           <p id="graph_title" class="panel-title text-left"></p>
 
@@ -56,12 +61,50 @@
 
                       <img src="public/img/ic_message_18dp.png"> {{$post['comments']}} </p>
 
+=======
+          <span class="project-title">{{ $data['project']->name }}</span>
+          <p id="graph_title" class="panel-title text-left"></p>
+          <div id="cardsbutton" class="buttons-filter buttons-bar"></div>
+            <div class="buttons-filter mainfilter"></div>
+            <div class="graphwrapper">
+              <div id="chartdiv"></div>
+            </div>
+            <div class="cardswrapper row">
+              @foreach($data['feed']['data'] as $post)
+                <div class="col-md-2">
+                  <div class="cardpanel .btn-default">
+                    <div class="card-title">
+                      <p>{{$post['date']}}</p>
+                      <a href="{{$post['link']}}">
+                        <abbr title="Link to post">
+                          <img src="public/icons/icon-link.png" alt="">
+                        </abbr>
+                      </a>
+                    </div>
+                    <div class="cardpicture">
+                        <img src="{{$post['picture']}}">
+                    </div>
+                    <div class="cardtext">
+                        <span class="more">{{$post['message']}}</span>
+                    </div>
+                    <div class = "cardstats"
+                        <p> <img src="public/icons/icon-like.png"> {{$post['likes']}}
+                        <img src="public/icons/icon-share.png"> {{$post['shares']}} 
+                        <img src="public/icons/icon-comment.png"> {{$post['comments']}} </p>
+                    </div>
+                  </div>
+                  <div class="arrow">
+                    <img src="public/icons/arrow-2.png" alt="">
+>>>>>>> be57a0c349897eb125101ce19254f7fb5e724550
                   </div>
 
                 </div>
+<<<<<<< HEAD
 
               </div>
 
+=======
+>>>>>>> be57a0c349897eb125101ce19254f7fb5e724550
               @endforeach
 
             </div>
@@ -97,15 +140,23 @@
                       <label for="radio2">Likes</label>
 
                     </div>
+<<<<<<< HEAD
 
                     <div class="funkyradio-primary">
 
+=======
+                    <!-- <div class="funkyradio-primary">
+>>>>>>> be57a0c349897eb125101ce19254f7fb5e724550
                       <input name="facebook" id="radio3" checked="" type="radio" value="3" />
 
                       <label for="radio3">Shares</label>
+<<<<<<< HEAD
 
                     </div>
 
+=======
+                    </div> -->
+>>>>>>> be57a0c349897eb125101ce19254f7fb5e724550
                   </div>
 
                   <button class="btn btn-primary" type="button" id="formbutton">Filter</button>
@@ -189,6 +240,7 @@
       </div>   
 
     <div class="row graph">
+<<<<<<< HEAD
 
        <div class="col-md-6">
 
@@ -220,6 +272,58 @@
 
     </div>
 
+=======
+        <div class="col-md-6">
+            <div class="panel">
+                <p class="panel-title">Overall</p>
+                <div class="OverallChartContainerTop">
+                    <div class="OverallChartContainerLeft subpanel">
+                        <p class="subpanel-title">Reached people - Location</p>
+                        <div>
+                            <canvas id="OverallDoughnutChartLocation" width="100" height="100"></canvas>
+                        </div>
+                    </div>
+                    <div class="OverallChartContainerRight subpanel">
+                        <p class="subpanel-title">Reached people - Age</p>
+                        <div>
+                            <canvas id="OverallDoughnutChartAge" width="100" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="OverallChartContainerBottom">
+                    <p class="subpanel-title">Reached people - Growth</p>
+                    <div>
+                        <canvas id="OverallLineChart" width="100" height="50"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel">
+                <p class="panel-title">Facebook</p>
+                <div class="OverallChartContainerTop">
+                    <div class="OverallChartContainerLeft subpanel">
+                        <p class="subpanel-title">Reached people - Location</p>
+                        <div>
+                            <canvas id="FacebookDoughnutChartLocation" width="100" height="100"></canvas>
+                        </div>
+                    </div>
+                    <div class="OverallChartContainerRight subpanel">
+                        <p class="subpanel-title">Reached people - Age</p>
+                        <div>
+                            <canvas id="FacebookDoughnutChartAge" width="100" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="OverallChartContainerBottom">
+                    <p class="subpanel-title">Reached people - Growth</p>
+                    <div>
+                        <canvas id="FacebookLineChart" width="100" height="50"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+>>>>>>> be57a0c349897eb125101ce19254f7fb5e724550
     </div>
 
   </div>
@@ -243,6 +347,7 @@
   
 
   function displayFilter(filtervalue){
+<<<<<<< HEAD
 
 
 
@@ -250,6 +355,9 @@
 
         
 
+=======
+      if(filtervalue != null){
+>>>>>>> be57a0c349897eb125101ce19254f7fb5e724550
         switch(filtervalue[0]) {
 
           case 1:

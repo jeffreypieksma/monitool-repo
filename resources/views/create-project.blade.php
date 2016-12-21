@@ -23,12 +23,12 @@
               <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} form-row">
                 <label for="name" class="control-label">Here you can put in your Facebook access token:</label>
                 <p class="text-right float-right link-create-story"><small>Your can find out how to get one <a href="">here</a>.</small></p>
-                <input id="fb_access_token" type="text" class="form-control" name="fb_access_token" value="{{ old('name') }}" required autofocus>
+                <input id="fb_access_token" type="text" class="form-control" name="fb_access_token" value="342365731324354786325341" required autofocus>
               </div>
               <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} form-row">
                 <label for="name" class="control-label">And the Youtube access token here:</label>
                 <p class="text-right float-right link-create-story"><small>Your can find out how to get one <a href="">here</a>.</small></p>
-                <input id="yt_access_token" type="text" class="form-control" name="yt_access_token" value="{{ old('name') }}" required autofocus>
+                <input id="yt_access_token" type="text" class="form-control" name="yt_access_token" value="3256436423574756142754676356" required autofocus>
               </div>
               <!-- <div class="row form-row">
                 <div class="col-md-12">

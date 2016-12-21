@@ -29,6 +29,7 @@ class DashboardController extends Controller
             }
             else{
                 $data = $this->FacebookController->dashboard();
+                $data['data']['project'] = $project;
                 return view('dashboard', $data);
             }
             // return redirect('create-project');
