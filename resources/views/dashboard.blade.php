@@ -1,35 +1,45 @@
 @extends('layouts.dashboard')
 @section('content')
-
+<script src="./resources/assets/js/chart-dashboard.js"></script>
 <div class="dashboard">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="panel graph fixed-height">
           <p id="graph_title" class="panel-title text-left"></p>
-          <div class="buttons-filter buttons-bar"></div>
+          <div id="cardsbutton" class="buttons-filter buttons-bar"></div>
             <div class="buttons-filter mainfilter"></div>
-            <!-- <div class="graphwrapper">
+            <div class="graphwrapper">
               <div id="chartdiv"></div>
-            </div> -->
-            <div class="cardwrapper row">
+            </div>
+            <div class="cardswrapper row">
               @foreach($data['feed']['data'] as $post)
-              <div class="col-md-2">
-                <div class="cardpanel .btn-default">
-                  <p class="card-title">{{$post['date']}} {{$post['id']}}</p>
-                  <div class="cardpicture">
-                      <img src="{{$post['picture']}}">
+                <div class="col-md-2">
+                  <div class="cardpanel .btn-default">
+                    <div class="card-title">
+                      <p>{{$post['date']}}</p>
+                      <a href="{{$post['link']}}">
+                        <abbr title="Link to post">
+                          <img src="public/icons/icon-link.png" alt="">
+                        </abbr>
+                      </a>
+                    </div>
+                    <div class="cardpicture">
+                        <img src="{{$post['picture']}}">
+                    </div>
+                    <div class="cardtext">
+                        <span class="more">{{$post['message']}}</span>
+                    </div>
+                    <div class = "cardstats"
+                        <p> <img src="public/icons/icon-like.png"> {{$post['likes']}}
+                        <img src="public/icons/icon-share.png"> {{$post['shares']}} 
+                        <img src="public/icons/icon-comment.png"> {{$post['comments']}} </p>
+                    </div>
                   </div>
-                  <div class="cardtext">
-                      <span class="more">{{$post['message']}}</span>
-                  </div>
-                  <div class = "cardstats"
-                      <p> <img src="public/img/ic_thumb_up_black_18dp_1x.png"> {{$post['likes']}}
-                      <img src="public/img/ic_share_black_18dp_2x.png"> {{$post['shares']}} 
-                      <img src="public/img/ic_message_18dp.png"> {{$post['comments']}} </p>
+                  <div class="arrow">
+                    <img src="public/icons/arrow-2.png" alt="">
                   </div>
                 </div>
-              </div>
               @endforeach
             </div>
         <section>
@@ -113,7 +123,7 @@
   </div>
 </div>
 
-<script src="./resources/assets/js/chart-dashboard.js"></script>
+
 <script type="text/javascript">
    var chartData = <?php echo $data['insights']; ?>;
    var graphTitle = document.getElementById("graph_title");

@@ -91,7 +91,7 @@
                                 </ul>
                             </li>
                         @endif
-                        <a href="/monitool-repo/help">
+                        <a class="nocolor" href="/monitool-repo/help">
                             <img class="icon-menu" src="./public/icons/icon-help.png" alt="">
                         </a>
                         
