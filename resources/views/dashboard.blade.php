@@ -9,10 +9,29 @@
           <p id="graph_title" class="panel-title text-left"></p>
           <div class="buttons-filter buttons-bar"></div>
             <div class="buttons-filter mainfilter"></div>
-            <div class="graphwrapper">
+            <!-- <div class="graphwrapper">
               <div id="chartdiv"></div>
-           </div>
-
+            </div> -->
+            <div class="cardwrapper row">
+              @foreach($data['feed']['data'] as $post)
+              <div class="col-md-2">
+                <div class="cardpanel .btn-default">
+                  <p class="card-title">{{$post['date']}} {{$post['id']}}</p>
+                  <div class="cardpicture">
+                      <img src="{{$post['picture']}}">
+                  </div>
+                  <div class="cardtext">
+                      <span class="more">{{$post['message']}}</span>
+                  </div>
+                  <div class = "cardstats"
+                      <p> <img src="public/img/ic_thumb_up_black_18dp_1x.png"> {{$post['likes']}}
+                      <img src="public/img/ic_share_black_18dp_2x.png"> {{$post['shares']}} 
+                      <img src="public/img/ic_message_18dp.png"> {{$post['comments']}} </p>
+                  </div>
+                </div>
+              </div>
+              @endforeach
+            </div>
         <section>
         <!-- Graph and filter -->
           <form id="filterform" class="filterwrapper">
@@ -109,6 +128,10 @@
        </div>
      </div>
     </div>
+<<<<<<< HEAD
+=======
+    </div>
+>>>>>>> a849d49935f1a8243b86b0f756066fa708b034d6
   </div>
 </div>
 
