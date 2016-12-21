@@ -778,3 +778,22 @@ ul.nav.navbar-nav a{color:#fff !important;}
 .amcharts-export-canvas{
 	top: 34px !important;
 }
+
+/*Overall chart container*/
+.OverallChartContainerTop{
+	width: 100%%;
+	clear: both;
+}
+.OverallChartContainerBottom{
+	width: 100%%;
+	max-width: 100%;
+	clear: both;
+}
+.OverallChartContainerLeft{
+	width: 50%;
+	float: left;
+}
+.OverallChartContainerRight{
+	width: 50%;
+	float: left;
+}

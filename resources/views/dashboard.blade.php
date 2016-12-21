@@ -76,44 +76,38 @@
       </div>   
     <div class="row graph">
        <div class="col-md-6">
-         <div class="panel">
-           <p class="panel-title">Overall</p>
-             <div class="OverallDoughnutChartContainer">
-               <canvas id="OverallDoughnutChart" width="100" height="100"></canvas>
-             </div>
+            <div class="panel">
+                <p class="panel-title">Overall</p>
+                    <div class="OverallChartContainerTop">
+                        <div class="OverallChartContainerLeft">
+                            <canvas id="OverallDoughnutChartLocation" width="100" height="100"></canvas>
+                        </div>
+                        <div class="OverallChartContainerRight">
+                            <canvas id="OverallDoughnutChartAge" width="100" height="100"></canvas>
+                         </div>
+                    </div>
+                    <div class="OverallChartContainerBottom">
+                        <canvas id="OverallLineChart" width="100" height="50"></canvas>
+                    </div>
          </div>
        </div>
        <div class="col-md-6">
          <div class="panel">
            <p class="panel-title">Facebook</p>
+           <div class="OverallChartContainerTop">
+                <div class="OverallChartContainerLeft">
+                    <canvas id="FacebooklDoughnutChartLocation" width="100" height="100"></canvas>
+                </div>
+                <div class="OverallChartContainerRight">
+                    <canvas id="FacebooklDoughnutChartAge" width="100" height="100"></canvas>
+                 </div>
+            </div>
+            <div class="OverallChartContainerBottom">
+                <canvas id="FacebooklLineChart" width="100" height="25"></canvas>
+            </div>
          </div>
        </div>
      </div>
-    </div>
-
-      
-    <div class="row dashboard-bottom-half">
-        <div class="col-md-4">
-          <div class="panel">
-            <p class="panel-title">Overall</p>
-              <div class="OverallDoughnutChartContainer">
-                <canvas id="OverallDoughnutChart" width="100" height="100"></canvav>
-              </div>
-
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel">
-            <p class="panel-title">Facebook</p>
-
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="panel">
-            <p class="panel-title">Youtube</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -126,9 +120,7 @@
    dashboardMakeChart(chartData);
   
   function displayFilter(filtervalue){
-
       if(filtervalue != null){
-        
         switch(filtervalue[0]) {
           case 1:
             console.log("Views");   
