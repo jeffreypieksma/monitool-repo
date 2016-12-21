@@ -872,9 +872,20 @@ ul.nav.navbar-nav a{color:#fff;}
 }
 
 /*Overall chart container*/
+.subpanel-title{
+	color: #045071;
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 5px;
+	clear: both;
+	text-align: center;
+	font-weight: bold;
+}
+
 .OverallChartContainerTop{
 	width: 100%%;
 	clear: both;
+	max-height: 500px;
 }
 .OverallChartContainerBottom{
 	width: 100%%;
