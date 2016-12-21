@@ -16,24 +16,17 @@ function dashboardMakeChart(chartData){
        }],
        "mouseWheelZoomEnabled": false,
        "graphs": [{
-           "id": "g1",
-           "title": "Algemene chart",
-           "valueField": "visits",
-           "hideBulletsCount": 50,
-           "useLineColorForBulletBorder": false,
-           "type": "smoothedLine",
-           "lineColorField": "lineColor",
-           "fillColorsField": "lineColor",
-           "fillAlphas": 0.3,
-           "balloonText": "[[value]]",
-           "lineThickness": 1,
-           "legendValueText": "[[value]]",
-           "bullet": "round",
-           "descriptionField": "description",
-           "bulletBorderThickness": 1,
-           "bulletBorderAlpha": 1,
-           "balloonText": "[[description]]"
-       }],
+            "id": "g1",
+            "title": "Algemene chart",
+            "type": "smoothedLine",
+            "valueField": "visits",
+            "bulletField": "bullet",
+            "descriptionField": "description",
+            "balloonText": "[[visits]]",            
+            "bulletBorderThickness": 4,
+            "bulletBorderAlpha": 1,
+            "fillAlphas": 0.3,
+        }],
        "chartScrollbar": {
            "autoGridCount": true,
            "graph": "g1",
@@ -70,24 +63,30 @@ function dashboardMakeChart(chartData){
 // this method is called when chart is first inited as we listen for "rendered" event
 
 var overallDoughnutChart = document.getElementById("OverallDoughnutChart");
-
-console.log(overallDoughnutChart);
-var newDoughnutChart = new Chart(overallDoughnutChart, {
+// Hier volgen de donut charts
+var OverallDoughnutChartAge = document.getElementById("OverallDoughnutChartAge");
+var newDoughnutChart = new Chart(OverallDoughnutChartAge, {
    type: 'doughnut',
    data: {
        labels: [
-           "Facebook",
-           "Youtube"
+           "0 - 25",
+           "25 - 45",
+           "45 - 65",
+           "65+"
        ],
        datasets: [{
-           data: [300, 50],
+           data: [65, 20, 10, 5],
            backgroundColor: [
-               "#36A2EB ",
-               "#FF6384 "                
+               "red",
+               "blue",
+               "yellow",
+               "green"               
            ],
            hoverBackgroundColor: [
-               "#36A2EB ",
-               "#FF6384 "
+               "red",
+               "blue",
+               "yellow",
+               "green"  
            ]
        }]},
    animation:{
@@ -104,4 +103,69 @@ var newDoughnutChart = new Chart(overallDoughnutChart, {
            position: "right"
        }
    }
+});
+
+var OverallDoughnutChartLocation = document.getElementById("OverallDoughnutChartLocation");
+var newDoughnutChart = new Chart(OverallDoughnutChartLocation, {
+   type: 'doughnut',
+   data: {
+       labels: [
+           "Leeuwarden",
+           "Sneek",
+           "Herenveen",
+           "Overig"
+       ],
+       datasets: [{
+           data: [35, 50, 10, 5],
+           backgroundColor: [
+               "red",
+               "blue",
+               "yellow",
+               "green"               
+           ],
+           hoverBackgroundColor: [
+               "red",
+               "blue",
+               "yellow",
+               "green"  
+           ]
+       }]},
+   animation:{
+       animateScale:true
+   },
+   options: {
+       responsive: true,
+       maintainAspectRatio: false,
+       scales: {
+           width: 150, // the same as right - left
+           height: 10, // the same as bottom - top
+       },
+       legend: {
+           position: "right"
+       }
+   }
+});
+
+var OverallLineChart = document.getElementById("OverallLineChart");
+var myLineChart = new Chart(OverallLineChart, {
+    type: 'line',
+    data: {
+        labels: ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli"],
+        datasets: [{
+                label: "Groei betrokken personen",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                pointBorderColor: "rgba(75,192,192,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [65, 59, 80, 81, 56, 55, 40],
+            }]},
 });
