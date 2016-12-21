@@ -63,8 +63,8 @@ body{
 
 ::-webkit-scrollbar
 {
-  width: 12px;  /* for vertical scrollbars */
-  height: 12px; /* for horizontal scrollbars */
+  width: 5px;  /* for vertical scrollbars */
+  height: 5px; /* for horizontal scrollbars */
 }
 
 ::-webkit-scrollbar-track
@@ -105,6 +105,10 @@ body{
 .nopadding {
    padding: 0 !important;
    margin: 0 !important;
+}
+
+.nocolor{
+	color: #3097D1 !important;
 }
 .large-text{
 	font-size:70px;
@@ -305,8 +309,10 @@ ul.dropdown-menu li a:hover{
 ul.nav.navbar-nav.navbar-right a.dropdown-toggle{
   background-color:#1D7FAA !important;
 }
-ul.nav.navbar-nav a{color:#fff !important;}
-
+ul.nav.navbar-nav a{color:#fff;}
+.dropdown-toggle{
+	color: #fff !important;
+}
 /*** Panel ***/
 
 .contentbg{
@@ -450,7 +456,7 @@ ul.nav.navbar-nav a{color:#fff !important;}
 
 /*** Card panels ***/
 
-.cardwrapper{
+.cardswrapper{
 	width: 100%;
 	height: 100%;
 	margin: auto;
@@ -464,17 +470,38 @@ ul.nav.navbar-nav a{color:#fff !important;}
 	height: 30px;
 	border-bottom: 2px solid #EDE9E6;
 	padding: 5px;
-	clear: both;
 	font-weight: bold;
+	text-align: center;
 }
+
+.card-title img{
+	height: 100%;
+	float: right;
+	position: relative;
+	bottom: 30px;
+}
+
+.card-title img:hover{
+	cursor: pointer;
+	opacity: .5;
+}
+
+.cardpanel:hover {
+	transform: scale(1.05,1.05);
+}
+
 .cardpicture{
 	text-align: center;
 	height: 85px;
 	margin: 5px auto;
+	margin-bottom: 10px;
+	padding-left: 19px;
 }
+
 .cardpicture img{
 	height: 100%;
 }
+
 .myClickState {
   	border-color: lime;
 }
@@ -485,25 +512,47 @@ ul.nav.navbar-nav a{color:#fff !important;}
 	font-size: 80%;
 	margin: 15px;
 	padding: 15px;
-	border: 1px solid #045071;
-	box-shadow: 2px black;
+	border-bottom: 1px solid #045071;
+	box-shadow: 0px 0px 5px #ddd;
 	text-align: left;
     width: 210px;
     height: 340px;
     padding: 5px;
+    border-radius: 2px;
+	transition: all .2s ease;
+}
+
+.arrow{
+	position: absolute;
+    right: -12px;
+    bottom: -70px;
+    transform: scale(0.4);
+}
+
+.col-md-2:last-child .arrow{
+	display: none;
 }
 
 .cardtext{
     top: 170px;
-    height: 150px;
+    height: 170px;
     margin: 0 10px;
     overflow-y: auto;
 	overflow-x: hidden;
+	text-align: justify;
+	padding-right: 5px;
 }
 .cardstats{
 	width: 100%;
     text-align: center;
-    padding-top: 11px;
+    padding-top: 3px;
+}
+
+.morecontent span {
+   display: none;
+}
+.morelink {
+   display: block;
 }
 
 /*** Create-project view ***/
@@ -738,18 +787,20 @@ ul.nav.navbar-nav a{color:#fff !important;}
 }
 
 /*Export knop*/
+.export-main{
+	bottom: 50px !important;
+    left: 25px;
+}
+
 .export-main>a{
 	background-color: orange !important;
 	position: relative !important;
-	bottom: 50px !important;
-	left: 25px !important;
 	border-radius: 0px !important;
 	width: 50px !important;
 	height: 50px !important;
 	background-image: url(../icons/icon-export.png) !important;
 	box-shadow: none !important;
 	border-radius: 2px !important;
-	opacity: 2 !important;
 }
 
 .export-main>a:hover{
@@ -758,16 +809,26 @@ ul.nav.navbar-nav a{color:#fff !important;}
 }
 
 .amcharts-export-menu-top-right li:hover>ul, .amcharts-export-menu-top-right li.active>ul{
-	right: -18px;
-	top: 1px;
+	bottom: -88px;
+    right: 5px;
+}
+
+.amcharts-export-menu ul{
+	position: relative;
+}
+.amcharts-export-menu li{
+	bottom: -50px;
+    right: 0px;
 }
 
 .amcharts-export-menu{opacity: 1;}
-
+.amcharts-export-menu>ul>li{bottom: 0;}
+.export-main>ul>li>ul>li{
+	bottom: 0;
+	background-color: white;
+}
 .export-main>ul>li:hover>ul{right: 120px;}
-
 .export-main>ul::after{display: none;}
-
 .export-main>ul>li>a::after{display: none;}
 
 
@@ -776,15 +837,12 @@ ul.nav.navbar-nav a{color:#fff !important;}
 .amcharts-export-menu .export-drawing>a{
 	background-color: orange !important;
 	position: relative !important;
-	bottom: 50px !important;
-	left: 25px !important;
 	border-radius: 0px !important;
 	width: 50px !important;
 	height: 50px !important;
 	background-image: url(../icons/icon-draw.png) !important;
 	box-shadow: none !important;
 	border-radius: 2px !important;
-	opacity: 2 !important;
 }
 
 .amcharts-export-menu .export-drawing>a:hover{
@@ -792,12 +850,21 @@ ul.nav.navbar-nav a{color:#fff !important;}
 	background-image: url(../icons/icon-draw-hover.png) !important;
 }
 
+.export-drawing{
+	bottom: 50px !important;
+    left: 25px;
+}
+
+.export-drawing>ul>li>ul>li{
+	bottom: 0;
+	background-color: white;
+}
+.export-drawing>ul>li>ul>li>ul>li{
+	bottom: 0;
+}
 .export-drawing>ul>li:hover>ul{right: 120px;}
-
 .export-drawing>ul>li>ul>li:hover>ul{right: 85px;}
-
 .export-drawing>ul::after{display: none;}
-
 .export-drawing>ul>li>a::after{display: none;}
 
 .amcharts-export-canvas{

@@ -40,36 +40,51 @@ class FacebookController extends Controller
 		    $likes = "";
 		    $shares = "";
 		    $comments = "";
+		    $link = "";
 
 		    if(isset($post['picture'])){
-		      $picture = $post['picture'];
+		      	$picture = $post['picture'];
+		    }
+		    else{
+		    	$picture = 'public/img/placeholder.png';
 		    }
 
 		    if(isset($post['message'])){
-		      $message = $post['message'];
+		      	$message = $post['message'];
+		    }
+		    else{
+		    	$message = 'This post contains no text.';
 		    }
 
 		    if(isset($post['likes'])){
-		      $likes = $post['likes']['summary']['total_count'];
+		      	$likes = $post['likes']['summary']['total_count'];
 		    }
 
 		    if(isset($post['shares'])){
-		      $shares = $post['shares']['count'];
+		      	$shares = $post['shares']['count'];
+		    }
+		    else{
+		    	$shares = 0;
 		    }
 
 		    if(isset($post['comments'])){
 		      $comments = $post['comments']['summary']['total_count'];
 		    }
 
+		    $postid = substr($post['id'], strpos($post['id'], "_") + 1);
+			$link = 'https://www.facebook.com/'.$postid;
+
 		    $output['data'][$key] = array(
 		    		'date'	=> $date,
 		    		'picture' => $picture,
 		    		'message' => $message,
-		    		'id' => $post['id'],
+		    		'link' => $link,
 		    		'likes' => $likes, 'shares' => $shares, 'comments' => $comments);
- 			}
+ 		}
 
-		return $output;
+ 		$data['data'] = array_reverse($output['data']);
+
+		return $data;
 	}
 
     public function post_dates(){
