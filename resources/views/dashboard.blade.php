@@ -94,44 +94,40 @@
         </section>
       </div>   
     <div class="row graph">
-       <div class="col-md-6">
+        <div class="col-md-6">
             <div class="panel">
                 <p class="panel-title">Overall</p>
-                    <div class="OverallChartContainerTop">
-                        <div class="OverallChartContainerLeft">
-                            <canvas id="OverallDoughnutChartLocation" width="100" height="100"></canvas>
-                        </div>
-                        <div class="OverallChartContainerRight">
-                            <canvas id="OverallDoughnutChartAge" width="100" height="100"></canvas>
-                         </div>
+                <div class="OverallChartContainerTop">
+                    <div class="OverallChartContainerLeft">
+                        <canvas id="OverallDoughnutChartLocation" width="100" height="100"></canvas>
                     </div>
-                    <div class="OverallChartContainerBottom">
-                        <canvas id="OverallLineChart" width="100" height="50"></canvas>
+                    <div class="OverallChartContainerRight">
+                        <canvas id="OverallDoughnutChartAge" width="100" height="100"></canvas>
                     </div>
-         </div>
-       </div>
-       <div class="col-md-6">
-         <div class="panel">
-           <p class="panel-title">Facebook</p>
-           <div class="OverallChartContainerTop">
-                <div class="OverallChartContainerLeft">
-                    <canvas id="FacebooklDoughnutChartLocation" width="100" height="100"></canvas>
                 </div>
-                <div class="OverallChartContainerRight">
-                    <canvas id="FacebooklDoughnutChartAge" width="100" height="100"></canvas>
-                 </div>
+                <div class="OverallChartContainerBottom">
+                    <canvas id="OverallLineChart" width="100" height="50"></canvas>
+                </div>
             </div>
-            <div class="OverallChartContainerBottom">
-                <canvas id="FacebooklLineChart" width="100" height="25"></canvas>
+        </div>
+        <div class="col-md-6">
+            <div class="panel">
+                <p class="panel-title">Facebook</p>
+                <div class="OverallChartContainerTop">
+                    <div class="OverallChartContainerLeft">
+                        <canvas id="FacebooklDoughnutChartLocation" width="100" height="100"></canvas>
+                    </div>
+                    <div class="OverallChartContainerRight">
+                        <canvas id="FacebooklDoughnutChartAge" width="100" height="100"></canvas>
+                    </div>
+                </div>
+                <div class="OverallChartContainerBottom">
+                    <canvas id="FacebooklLineChart" width="100" height="25"></canvas>
+                </div>
             </div>
-         </div>
-       </div>
-     </div>
+        </div>
     </div>
-<<<<<<< HEAD
-=======
-    </div>
->>>>>>> a849d49935f1a8243b86b0f756066fa708b034d6
+</div>
   </div>
 </div>
 
