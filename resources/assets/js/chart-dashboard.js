@@ -108,7 +108,7 @@ var newDoughnutChart = new Chart(OverallDoughnutChartLocation, {
        labels: [
            "Leeuwarden",
            "Sneek",
-           "Herenveen",
+           "Heerenveen",
            "Overig"
        ],
        datasets: [{
@@ -216,7 +216,7 @@ var newDoughnutChart = new Chart(FacebookDoughnutChartLocation, {
        labels: [
            "Leeuwarden",
            "Sneek",
-           "Herenveen",
+           "Heerenveen",
            "Overig"
        ],
        datasets: [{
