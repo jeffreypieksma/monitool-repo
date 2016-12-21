@@ -109,14 +109,23 @@
                 <p class="panel-title">Overall</p>
                 <div class="OverallChartContainerTop">
                     <div class="OverallChartContainerLeft">
-                        <canvas id="OverallDoughnutChartLocation" width="100" height="100"></canvas>
+                        <p class="subpanel-title">Location reached persons</p>
+                        <div>
+                            <canvas id="OverallDoughnutChartLocation" width="100" height="100"></canvas>
+                        </div>
                     </div>
                     <div class="OverallChartContainerRight">
-                        <canvas id="OverallDoughnutChartAge" width="100" height="100"></canvas>
+                        <p class="subpanel-title">Age reached persons</p>
+                        <div>
+                            <canvas id="OverallDoughnutChartAge" width="100" height="100"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="OverallChartContainerBottom">
-                    <canvas id="OverallLineChart" width="100" height="50"></canvas>
+                    <p class="subpanel-title">Growth reached persons</p>
+                    <div>
+                        <canvas id="OverallLineChart" width="100" height="50"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,14 +134,23 @@
                 <p class="panel-title">Facebook</p>
                 <div class="OverallChartContainerTop">
                     <div class="OverallChartContainerLeft">
-                        <canvas id="FacebookDoughnutChartLocation" width="100" height="100"></canvas>
+                        <p class="subpanel-title">Location reached persons</p>
+                        <div>
+                            <canvas id="FacebookDoughnutChartLocation" width="100" height="100"></canvas>
+                        </div>
                     </div>
                     <div class="OverallChartContainerRight">
-                        <canvas id="FacebookDoughnutChartAge" width="100" height="100"></canvas>
+                        <p class="subpanel-title">Age reached persons</p>
+                        <div>
+                            <canvas id="FacebookDoughnutChartAge" width="100" height="100"></canvas>
+                        </div>
                     </div>
                 </div>
                 <div class="OverallChartContainerBottom">
-                    <canvas id="FacebookLineChart" width="100" height="50"></canvas>
+                    <p class="subpanel-title">Growth reached persons</p>
+                    <div>
+                        <canvas id="FacebookLineChart" width="100" height="50"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
