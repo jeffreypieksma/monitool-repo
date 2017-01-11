@@ -157,6 +157,15 @@ hr.horizontal-break, hr.break {
 	padding: 5px;
 }
 
+.headbar{
+	height: 67px;
+	margin-top: 20px;
+}
+
+.headbar-etc{
+	margin-bottom: 40px;
+}
+
 /*** Filter Dashboard ****/
 
 .panel.filterwrapper{
@@ -284,25 +293,8 @@ hr.horizontal-break, hr.break {
   background-color: #5bc0de;
 }
 
-/*** Navigation ***/
+/*** Navigation & Navigation ***/
 
-.navbar.navbar-default.navbar-static-top{
-	background-color:#1D7FAA;
-}
-
-.navbar{
-	margin-bottom:0px !important;
-	border-bottom:0px !important;
-}
-
-.navbar .navbar-brand{
-	font-family: titleFont;
-	font-size:30px;
-	color:#fff !important;
-}
-.navbar > .container .navbar-brand{
-	margin-left:0px !important;
-}
 
 ul.nav.navbar-nav.navbar-right li:nth-child(2) a:hover{
 	font-weight: bold;
@@ -385,9 +377,9 @@ ul.nav.navbar-nav a{color:#fff;}
 }
 
 .panel{
-	background-color: white;
+	background-color: #fff;
 	padding: 15px;
-	border-bottom: 1px solid #045071;
+	/*border-bottom: 1px solid #045071;*/
 }
 
 .panel-title{
@@ -416,7 +408,7 @@ ul.nav.navbar-nav a{color:#fff;}
 	width: 50px;
 	margin-bottom: -50px;
 	position: relative;
-	bottom: 50px;
+	bottom: 7px;
 	float: right;
 	background-color: orange;
 	background-image: url(../icons/icon-back.png);
@@ -427,7 +419,6 @@ ul.nav.navbar-nav a{color:#fff;}
 	background-color: white;
 	background-image: url(../icons/icon-back-hover.png);
 	cursor: pointer;
-	border-bottom: 1px solid #045071;
 }
 
 .dashboard-options .panel input{
@@ -443,17 +434,14 @@ ul.nav.navbar-nav a{color:#fff;}
 	color: #045071;
 }
 
-.dashboard-options .terms{
-	width: 100%;
-	height: 125px;
-	margin-bottom: 15px;
-	padding: 10px;
-	background-color: #f5f8fa;
-	overflow-y: scroll;
+.dashboard-options .panel.terms{
+	height:550px;
 }
 
-.dashboard-options .btn-danger{
-	float: right;
+.dashboard-options .content.terms{
+	padding: 15px;
+	background-color: #f5f8fa;
+	overflow-y: scroll;
 }
 
 .dashboard-options .form-horizontal{
@@ -653,7 +641,8 @@ ul.nav.navbar-nav a{color:#fff;}
 	font-size: 14px;
 }
 
-.dashboard-help .panel{padding-top: 0;}
+.dashboard-help .sidebar .panel{padding-top: 0;}
+.dashboard-help .col-md-10 .panel{padding-top: 0;}
 
 .dashboard-help .menu{
 	margin-top: 15px;
@@ -749,10 +738,8 @@ ul.nav.navbar-nav a{color:#fff;}
 }
 
 .dashboard .panel{
-	/*margin: 10px;*/
 	height: 100%;
 	overflow: hidden;
-	margin-top:20px;
 	padding:15px !important;
 }
 
@@ -829,7 +816,7 @@ ul.nav.navbar-nav a{color:#fff;}
 
 /*Export knop*/
 .export-main{
-	bottom: 167px !important;
+	bottom: 147px !important;
     left: 25px;
 }
 
@@ -892,7 +879,7 @@ ul.nav.navbar-nav a{color:#fff;}
 }
 
 .export-drawing{
-	bottom: 167px !important;
+	bottom: 147px !important;
     left: 25px;
 }
 

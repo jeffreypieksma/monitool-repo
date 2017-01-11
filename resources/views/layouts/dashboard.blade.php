@@ -50,8 +50,10 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/dashboard') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <!---{{ config('app.name', 'Laravel') }}-->
+                        <img src="{{URL::asset('public/img/logo-monitool.png') }}" alt="Monitool brand">
                     </a>
                 </div>
 
@@ -75,7 +77,10 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a class="dashboard-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                                    <a class="dashboard-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                                    </li>
+                                    <li>
+                                    <a class="" href="{{ url('/account-settings') }}">Account settings</a>
                                     </li>
                                     <li>
                                         <a class="dashboard-link" href="{{ url('/options') }}">Project settings</a>

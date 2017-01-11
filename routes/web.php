@@ -29,12 +29,14 @@ Route::post('/create-project', 'CreateProjectController@store');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/options', 'OptionsController@index');
+Route::get('/account-settings', 'AccountController@index');
+Route::post('/account-settings/update', 'AccountController@updateAccount');
 
+Route::get('/options', 'OptionsController@index');
+Route::get('/options/delete', 'OptionsController@delete');
 Route::post('/options/project', 'OptionsController@updateProject');
 Route::post('/options/service', 'OptionsController@updateService');
-Route::post('/options/account', 'OptionsController@updateAccount');
-Route::get('/options/delete', 'OptionsController@delete');
+
 
 Route::get('/help', 'DashboardController@help');
 

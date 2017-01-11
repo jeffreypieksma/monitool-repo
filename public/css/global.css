@@ -62,11 +62,13 @@ body{
 
 .navbar-collapse.collapse ul li a{color:#fff;}
 
-.navbar .navbar-brand{
-  font-family: titleFont;
-  font-size:30px;
-  color:#fff !important;
+.navbar .navbar-brand img{
+  width:210px;
 }
+.navbar .navbar-brand{
+  padding-top:10px !important;
+}
+
 .navbar > .container .navbar-brand{margin-left:0px !important;}
 
 .navbar .navbar-header .navbar-toggle{background-color:transparent;}
@@ -87,33 +89,26 @@ body{
 
 .navbar-collapse.collapse .navbar-right li:nth-child(2) a:hover,
 .navbar-collapse.collapse .navbar-right li:nth-child(1) a:hover{
-  font-weight: bold;
   color:#fff;
 }
 
-/*
-ul.dropdown-menu{
-  background-color:#1D7FAA;
-  border:none !important; 
-}
-
-ul.dropdown-menu li a:hover{
-  background-color:#1D7FAA;
-  font-weight: bold;
-}
-
-ul.nav.navbar-nav.navbar-right a.dropdown-toggle{
-  background-color:#1D7FAA !important;
-}
-ul.nav.navbar-nav a{color:#fff !important;}
-*/
+/*.nav.navbar-nav.navbar-right li:nth-child(2) a{
+  background-color:#FCA94C;
+  border-radius:5px;
+  padding:5px;
+  margin-top:7px;
+  margin-right:20px;
+}*/
 
 /*** Buttons ***/
-.btn{
-  width:120px;
-}
+
 .button{
-  background-color:#FF9621;
+  box-shadow: 2px 2px 0px #4f4f4f;
+  background-color:#ff9621;
+  -moz-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
   padding-left:15px;
   padding-right:15px;
   padding-top:10px;
@@ -121,9 +116,44 @@ ul.nav.navbar-nav a{color:#fff !important;}
   border-radius:3px;
   width:120px;
 }
+.button:hover{background-color:#3185ab;}
+.button.orange{background-color:#ff9621;}
+.button.orange:hover{background-color:#3185ab;}
+
+.button-large{
+  box-shadow: 2px 2px 0px #4f4f4f;
+  background-color:#ff9621;
+  -moz-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  padding-left:17px;
+  padding-right:17px;
+  padding-top:12px;
+  padding-bottom:12px;
+  border-radius:4px;
+  width:140px;
+}
+.button-large:hover{background-color:#3185ab;}
+.button-large.orange{background-color:#ff9621;}
+.button-large.orange:hover{background-color:#3185ab;}
 
 a.button{text-decoration: none;color:#fff;}
+/*
+.btn{
+  width:120px;
+}
+.button{
+  background-color:#FF9621;
+
+  width:120px;
+}
 .button:hover{background-color:#FCA94C;}
+
+
+*/
+
+.btn{min-width:100px;}
 
 .btn.btn-primary.white{
   background-color:#F2F2F2;
