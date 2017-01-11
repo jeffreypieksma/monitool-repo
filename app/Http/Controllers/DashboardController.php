@@ -32,7 +32,6 @@ class DashboardController extends Controller
                 $data['data']['project'] = $project;
                 return view('dashboard', $data);
             }
-            // return redirect('create-project');
         }
     	else{
             return view('auth.login');

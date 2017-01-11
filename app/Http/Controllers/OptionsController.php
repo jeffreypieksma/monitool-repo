@@ -16,32 +16,38 @@ class OptionsController extends Controller
 {
 	//Alle opties
 	public function index() {
-		$user_id = Auth::user()->id;
-		$user = Auth::user($user_id);
-		$project = DB::table('projects')->where('user_id', $user_id)->first();
-		$services = DB::table('services')->where('project_id', $project->id)->get();
-		$project_date = strtotime($project->created_at);
-		$selected1= '';
-		$selected2= '';
-		$selected3= '';
-		switch ($project->dateFormat) {
-		case '1':
-		  $selected1 = "selected=selected";
-		  $project_date = date('d/m/Y', $project_date);
-		  break;
-		case '2':
-		  $selected2 = "selected=selected";
-		  $project_date = date('m/d/Y', $project_date);
-		  break;
-		case '3':
-		  $selected3 = "selected=selected";
-		  $project_date = date('Y/m/d', $project_date);
-		  break;
-		default:
-		  $selected1 = "selected=selected";
-		  break;
+		$id = Auth::id();
+		if ($id) {
+			$user_id = Auth::user()->id;
+			$user = Auth::user($user_id);
+			$project = DB::table('projects')->where('user_id', $user_id)->first();
+			$services = DB::table('services')->where('project_id', $project->id)->get();
+			$project_date = strtotime($project->created_at);
+			$selected1= '';
+			$selected2= '';
+			$selected3= '';
+			switch ($project->dateFormat) {
+			case '1':
+			  $selected1 = "selected=selected";
+			  $project_date = date('d/m/Y', $project_date);
+			  break;
+			case '2':
+			  $selected2 = "selected=selected";
+			  $project_date = date('m/d/Y', $project_date);
+			  break;
+			case '3':
+			  $selected3 = "selected=selected";
+			  $project_date = date('Y/m/d', $project_date);
+			  break;
+			default:
+			  $selected1 = "selected=selected";
+			  break;
+			}
+			return view('options', compact('user', 'project', 'services', 'selected1', 'selected2', 'selected3', 'project_date'));
 		}
-		return view('options', compact('user', 'project', 'services', 'selected1', 'selected2', 'selected3', 'project_date'));
+		else{
+			return redirect('login');
+		}
 	}
 
 	public function delete(Request $request) {

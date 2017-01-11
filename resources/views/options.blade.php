@@ -7,7 +7,7 @@
 <div class="dashboard-options">
   <div class="container-fluid">
     <h2>Settings</h2>
-    <a href="{{ URL::previous() }}" class="back-button"></a>
+    <a href="{{ url('/dashboard') }}" class="back-button"></a>
     <div class="flash-message">
       @foreach (['danger', 'warning', 'success', 'info'] as $msg)
         @if(Session::has('alert-' . $msg))
