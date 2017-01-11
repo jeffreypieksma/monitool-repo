@@ -37,7 +37,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        <!--{{ config('app.name', 'Laravel') }}-->
+                        <img src="{{URL::asset('public/img/logo-monitool.png') }}" alt="Monitool brand">
                     </a>
                 </div>
 

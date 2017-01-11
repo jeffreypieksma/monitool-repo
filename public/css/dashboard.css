@@ -274,25 +274,8 @@ hr.horizontal-break, hr.break {
   background-color: #5bc0de;
 }
 
-/*** Navigation ***/
+/*** Navigation & Navigation ***/
 
-.navbar.navbar-default.navbar-static-top{
-	background-color:#1D7FAA;
-}
-
-.navbar{
-	margin-bottom:0px !important;
-	border-bottom:0px !important;
-}
-
-.navbar .navbar-brand{
-	font-family: titleFont;
-	font-size:30px;
-	color:#fff !important;
-}
-.navbar > .container .navbar-brand{
-	margin-left:0px !important;
-}
 
 ul.nav.navbar-nav.navbar-right li:nth-child(2) a:hover{
 	font-weight: bold;
@@ -364,9 +347,9 @@ ul.nav.navbar-nav a{color:#fff;}
 }
 
 .panel{
-	background-color: white;
+	background-color: #fff;
 	padding: 15px;
-	border-bottom: 1px solid #045071;
+	/*border-bottom: 1px solid #045071;*/
 }
 
 .panel-title{
@@ -422,17 +405,14 @@ ul.nav.navbar-nav a{color:#fff;}
 	color: #045071;
 }
 
-.dashboard-options .terms{
-	width: 100%;
-	height: 125px;
-	margin-bottom: 15px;
-	padding: 10px;
-	background-color: #f5f8fa;
-	overflow-y: scroll;
+.dashboard-options .panel.terms{
+	height:550px;
 }
 
-.dashboard-options .btn-danger{
-	float: right;
+.dashboard-options .content.terms{
+
+	background-color: #f5f8fa;
+	overflow-y: scroll;
 }
 
 .dashboard-options .form-horizontal{

@@ -1,3 +1,4 @@
+
 body{
 	background-color:#e6e6e6;
 }
@@ -10,7 +11,7 @@ body{
 
 
 /*** Navigation ***/
-
+/*
 .navbar-brand{
 	font-family: MonitoolTitle;
 	font-size:30px;
@@ -23,19 +24,7 @@ body{
 	margin-left:0px !important;
 }
 
-ul.nav.navbar-nav.navbar-right li:nth-child(2) a{
-  background-color:#FCA94C;
-	border-radius:5px;
-	padding:5px;
-	margin-top:7px;
-	margin-right:20px;
-}
-ul.nav.navbar-nav.navbar-right li:nth-child(2) a:hover{
-	font-weight: bold;
-}
-ul.nav.navbar-nav.navbar-right li:nth-child(1) a:hover{
-	font-weight: bold;
-}
+
 ul.dropdown-menu{
   background-color:#1D7FAA;
   border:none !important;
@@ -49,8 +38,8 @@ ul.dropdown-menu li a:hover{
 ul.nav.navbar-nav.navbar-right a.dropdown-toggle{
   background-color:#1D7FAA !important;
 }
+*/
 
-/*** Navigation ***/
 
 #app .navbar .container{background-color:#1D7FAA; }
 #app .navbar{margin-bottom:0px;}

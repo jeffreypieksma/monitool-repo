@@ -71,37 +71,6 @@ class OptionsController extends Controller
 	    return redirect('/options');
 	}
 
-	public function updateAccount(Request $request) {
-		$id = Auth::user()->id;
-		$user = User::find($id);
-		if ($request->password_new) {
-			if (Hash::check($request->password, $user->password))
-			{
-				if ($request->password_new == $request->password_new_confirm) {
-					$user->password = Hash::make($request->password_new);
-					$user->name = $request->name;
-			    	$user->save();
-			    	$request->session()->flash('alert-success', 'Successfully updated name and password!');
-			    	return redirect('/options');
-				}
-				else{
-					$request->session()->flash('alert-danger', 'Passwords do not match.');
-			    	return redirect('/options');
-				}
-			}
-			else{
-				$request->session()->flash('alert-danger', 'Password does not match with our database.');
-				return redirect('/options');
-			}   
-		}
-		else{
-			$user->name = $request->name;
-			$user->save();
-			$request->session()->flash('alert-success', 'Successfully updated name!');
-			return redirect('/options');
-		}
-	}
-
 	public function updateService(Request $request) {
 		$success = '';
 		$id = Auth::user()->id;

@@ -42,7 +42,6 @@ class FacebookController extends Controller
 
     }
 
-<<<<<<< HEAD
 
 
     public function feed(){
@@ -83,11 +82,19 @@ class FacebookController extends Controller
 
             $comments = "";
 
+            $link = "";
+
 
 
             if(isset($post['picture'])){
 
-              $picture = $post['picture'];
+                $picture = $post['picture'];
+
+            }
+
+            else{
+
+                $picture = 'public/img/placeholder.png';
 
             }
 
@@ -95,7 +102,13 @@ class FacebookController extends Controller
 
             if(isset($post['message'])){
 
-              $message = $post['message'];
+                $message = $post['message'];
+
+            }
+
+            else{
+
+                $message = 'This post contains no text.';
 
             }
 
@@ -103,7 +116,7 @@ class FacebookController extends Controller
 
             if(isset($post['likes'])){
 
-              $likes = $post['likes']['summary']['total_count'];
+                $likes = $post['likes']['summary']['total_count'];
 
             }
 
@@ -111,7 +124,13 @@ class FacebookController extends Controller
 
             if(isset($post['shares'])){
 
-              $shares = $post['shares']['count'];
+                $shares = $post['shares']['count'];
+
+            }
+
+            else{
+
+                $shares = 0;
 
             }
 
@@ -125,6 +144,12 @@ class FacebookController extends Controller
 
 
 
+            $postid = substr($post['id'], strpos($post['id'], "_") + 1);
+
+            $link = 'https://www.facebook.com/'.$postid;
+
+
+
             $output['data'][$key] = array(
 
                     'date'  => $date,
@@ -133,86 +158,23 @@ class FacebookController extends Controller
 
                     'message' => $message,
 
-                    'id' => $post['id'],
+                    'link' => $link,
 
                     'likes' => $likes, 'shares' => $shares, 'comments' => $comments);
 
-            }
+        }
 
 
 
-        return $output;
+        $data['data'] = array_reverse($output['data']);
+
+
+
+        return $data;
 
     }
 
 
-=======
-	public function feed(){
-	    $request = $this->fqb->node("$this->node/feed")
-	    			->fields("name,message,shares,comments.summary(true),likes.summary(true),created_time,picture,story,full_picture")
-	               	->accessToken($this->access_token)
-	               	->graphVersion('v2.8');
-		$context 	= stream_context_create(['http' => ['ignore_errors' => true]]);
-		$response 	= file_get_contents((string) $request, null, $context);
-		$data 		= json_decode($response, true);
-
-
-		$output = array();
-		foreach ($data['data'] as $key => $post) {
-		    //define
-		    $date = date('d-m-Y G:i:s', strtotime($post['created_time']));
-		    $picture = "";
-		    $message = "";
-		    $likes = "";
-		    $shares = "";
-		    $comments = "";
-		    $link = "";
-
-		    if(isset($post['picture'])){
-		      	$picture = $post['picture'];
-		    }
-		    else{
-		    	$picture = 'public/img/placeholder.png';
-		    }
-
-		    if(isset($post['message'])){
-		      	$message = $post['message'];
-		    }
-		    else{
-		    	$message = 'This post contains no text.';
-		    }
-
-		    if(isset($post['likes'])){
-		      	$likes = $post['likes']['summary']['total_count'];
-		    }
-
-		    if(isset($post['shares'])){
-		      	$shares = $post['shares']['count'];
-		    }
-		    else{
-		    	$shares = 0;
-		    }
-
-		    if(isset($post['comments'])){
-		      $comments = $post['comments']['summary']['total_count'];
-		    }
-
-		    $postid = substr($post['id'], strpos($post['id'], "_") + 1);
-			$link = 'https://www.facebook.com/'.$postid;
-
-		    $output['data'][$key] = array(
-		    		'date'	=> $date,
-		    		'picture' => $picture,
-		    		'message' => $message,
-		    		'link' => $link,
-		    		'likes' => $likes, 'shares' => $shares, 'comments' => $comments);
- 		}
-
- 		$data['data'] = array_reverse($output['data']);
-
-		return $data;
-	}
->>>>>>> be57a0c349897eb125101ce19254f7fb5e724550
 
     public function post_dates(){
 
