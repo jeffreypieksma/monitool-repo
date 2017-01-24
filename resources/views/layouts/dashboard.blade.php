@@ -50,7 +50,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/dashboard') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -78,6 +78,12 @@
                                         <a class="dashboard-link" href="{{ url('/dashboard') }}">Dashboard</a>
                                     </li>
                                     <li>
+                                        <a class="dashboard-link" href="{{ url('/options') }}">Project settings</a>
+                                    </li>
+                                    <li>
+                                        <a class="dashboard-link" href="{{ url('/help') }}">Help</a>
+                                    </li>
+                                    <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -91,13 +97,6 @@
                                 </ul>
                             </li>
                         @endif
-                        <a class="nocolor" href="/monitool-repo/help">
-                            <img class="icon-menu" src="./public/icons/icon-help.png" alt="">
-                        </a>
-                        
-                        <a href="/monitool-repo/options">
-                             <img class="icon-menu icon-options" src="./public/icons/icon-options.png" alt="">
-                        </a>
                     </ul>
                 </div>
             </div>

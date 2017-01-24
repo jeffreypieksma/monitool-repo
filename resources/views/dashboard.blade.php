@@ -5,17 +5,25 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="panel graph fixed-height">
+        <div class="panel">
           <span class="project-title">{{ $data['project']->name }}</span>
+          <a href="/monitool-repo/options" class="title-edit">
+            <img src="public/icons/icon-edit.png" alt="" title="Edit story name">
+          </a>
+          <div id="cardsbutton" class="buttons-filter buttons-bar" title="Toggle cards view"></div>
+          <div class="buttons-filter mainfilter" title="Toggle filters"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel graph fixed-height">
           <p id="graph_title" class="panel-title text-left"></p>
-          <div id="cardsbutton" class="buttons-filter buttons-bar"></div>
-            <div class="buttons-filter mainfilter"></div>
             <div class="graphwrapper">
               <div id="chartdiv"></div>
             </div>
             <div class="cardswrapper row">
               @foreach($data['feed']['data'] as $post)
-                <div class="col-md-2">
                   <div class="cardpanel .btn-default">
                     <div class="card-title">
                       <p>{{$post['date']}}</p>
@@ -40,7 +48,6 @@
                   <div class="arrow">
                     <img src="public/icons/arrow-2.png" alt="">
                   </div>
-                </div>
               @endforeach
             </div>
         <section>
@@ -163,7 +170,7 @@
 <script type="text/javascript">
    var chartData = <?php echo $data['insights']; ?>;
    var graphTitle = document.getElementById("graph_title");
-   graphTitle.innerHTML = "Facebook - Impressions";
+   graphTitle.innerHTML = "Facebook - Views";
    dashboardMakeChart(chartData);
   
   function displayFilter(filtervalue){
@@ -172,7 +179,7 @@
           case 1:
             console.log("Views");   
             var chartData = <?php echo $data['insights']; ?>;
-            graphTitle.innerHTML = "Facebook - Impressions";
+            graphTitle.innerHTML = "Facebook - Views";
             dashboardMakeChart(chartData);
             break;
           case 2:
