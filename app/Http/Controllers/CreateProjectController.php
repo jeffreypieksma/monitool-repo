@@ -15,9 +15,8 @@ class CreateProjectController extends Controller
     public function index(){
     	$id = Auth::id();
     	if ($id > 0) {
-    		$project = DB::table('projects')->where('user_id', $id)->first();
-
-
+    		//$project = DB::table('projects')->where('user_id', $id)->first();
+            $project = Project::where('user_id', $id)->first();
             if (!$project) {
 	    		return view('create-project');
 	    	}
@@ -32,8 +31,6 @@ class CreateProjectController extends Controller
     }
 
     public function store(Request $request){
-
-        
 
         $project = new Project;
         $project->name = $request->name;

@@ -20,8 +20,10 @@ class OptionsController extends Controller
 		if ($id) {
 			$user_id = Auth::user()->id;
 			$user = Auth::user($user_id);
-			$project = DB::table('projects')->where('user_id', $user_id)->first();
-			$services = DB::table('services')->where('project_id', $project->id)->get();
+			//$project = DB::table('projects')->where('user_id', $user_id)->first();
+			$project = Project::where('user_id', $id)->first();
+			//$services = DB::table('services')->where('project_id', $project->id)->get();
+			$services = Service::where('project_id', $project->id)->get();
 			$project_date = strtotime($project->created_at);
 			$selected1= '';
 			$selected2= '';
@@ -75,37 +77,6 @@ class OptionsController extends Controller
 	    $project->save();
 	    $request->session()->flash('alert-success', 'Successfully updated project settings!');
 	    return redirect('/options');
-	}
-
-	public function updateAccount(Request $request) {
-		$id = Auth::user()->id;
-		$user = User::find($id);
-		if ($request->password_new) {
-			if (Hash::check($request->password, $user->password))
-			{
-				if ($request->password_new == $request->password_new_confirm) {
-					$user->password = Hash::make($request->password_new);
-					$user->name = $request->name;
-			    	$user->save();
-			    	$request->session()->flash('alert-success', 'Successfully updated name and password!');
-			    	return redirect('/options');
-				}
-				else{
-					$request->session()->flash('alert-danger', 'Passwords do not match.');
-			    	return redirect('/options');
-				}
-			}
-			else{
-				$request->session()->flash('alert-danger', 'Password does not match with our database.');
-				return redirect('/options');
-			}   
-		}
-		else{
-			$user->name = $request->name;
-			$user->save();
-			$request->session()->flash('alert-success', 'Successfully updated name!');
-			return redirect('/options');
-		}
 	}
 
 	public function updateService(Request $request) {

@@ -23,7 +23,8 @@ class DashboardController extends Controller
     public function index(){
     	$id = Auth::id();
         if ($id) {
-            $project = DB::table('projects')->where('user_id', $id)->first();
+            //$project = DB::table('projects')->where('user_id', $id)->first();
+            $project = Project::where('user_id', $id)->first();
             if (!$project) {
                 return redirect('create-project');
             }

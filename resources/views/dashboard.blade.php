@@ -5,7 +5,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="panel">
+        <div class="panel headbar">
           <span class="project-title">{{ $data['project']->name }}</span>
           <a href="/monitool-repo/options" class="title-edit">
             <img src="public/icons/icon-edit.png" alt="" title="Edit story name">
